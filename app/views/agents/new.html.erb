@@ -1,0 +1,16 @@
+<h1>This is a form for a new article</h1>
+
+<%= form_for @agent do |a| %>
+    <p>
+      <%= a.label :name %><br/>
+      <%= a.text_field :name %>
+    </p>
+    <p>
+      <%= a.label :suburb %><br/>
+      <%= a.text_field :suburb %>
+    </p>
+    <p>
+      <%= a.submit %>
+    </p>
+
+<% end %>
