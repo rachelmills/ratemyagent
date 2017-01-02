@@ -1,4 +1,6 @@
 class AgentsController < ApplicationController
+
+  before_action :set_agent, only: [:edit, :update, :show, :destroy]
   def index
     @agents = Agent.all
     puts "number of agents is #{@agents.size}"
@@ -9,7 +11,7 @@ class AgentsController < ApplicationController
   end
 
   def edit
-    @agent = Agent.find(params[:id])
+
   end
 
   def create
@@ -24,7 +26,6 @@ class AgentsController < ApplicationController
   end
 
   def update
-    @agent = Agent.find(params[:id])
     if @agent.update(agent_params)
       flash[:notice] = 'Agent was successfully updated'
       redirect_to agent_path(@agent)
@@ -34,17 +35,21 @@ class AgentsController < ApplicationController
   end
 
   def show
-    @agent = Agent.find(params[:id])
+
   end
 
   def destroy
-    @agent = Agent.find(params[:id])
     @agent.destroy
     flash[:notice] = 'Agent was successfully deleted'
     redirect_to agents_path
   end
 
   private
+
+  def set_agent
+    @agent = Agent.find(params[:id])
+  end
+
   def agent_params
     params.require(:agent).permit(:name, :suburb)
   end
