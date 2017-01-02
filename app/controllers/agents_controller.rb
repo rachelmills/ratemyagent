@@ -37,6 +37,13 @@ class AgentsController < ApplicationController
     @agent = Agent.find(params[:id])
   end
 
+  def destroy
+    @agent = Agent.find(params[:id])
+    @agent.destroy
+    flash[:notice] = 'Agent was successfully deleted'
+    redirect_to agents_path
+  end
+
   private
   def agent_params
     params.require(:agent).permit(:name, :suburb)

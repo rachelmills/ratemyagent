@@ -17,6 +17,7 @@
         <td><%= agent.suburb %></td>
         <td><%= link_to "Edit", edit_agent_path(agent) %></td>
         <td><%= link_to "Show", agent_path(agent) %> </td>
+        <td><%= link_to "Delete", agent_path(agent), method: :delete, data: {confirm: 'Are you sure?'} %> </td>
       </tr>
   <% end %>
 </table>
