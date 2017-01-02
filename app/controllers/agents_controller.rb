@@ -1,6 +1,15 @@
 class AgentsController < ApplicationController
+  def index
+    @agents = Agent.all
+    puts "number of agents is #{@agents.size}"
+  end
+
   def new
     @agent = Agent.new
+  end
+
+  def edit
+    @agent = Agent.find(params[:id])
   end
 
   def create
@@ -11,6 +20,16 @@ class AgentsController < ApplicationController
       redirect_to agent_path(@agent)
     else
       render 'new'
+    end
+  end
+
+  def update
+    @agent = Agent.find(params[:id])
+    if @agent.update(agent_params)
+      flash[:notice] = 'Agent was successfully updated'
+      redirect_to agent_path(@agent)
+    else
+      render 'edit'
     end
   end
 

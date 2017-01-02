@@ -1,0 +1,22 @@
+<h1>Listing all articles</h1>
+<p>
+  <%= link_to "Create new agent", new_agent_path %>
+</p>
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Suburb
+    </th>
+  </tr>
+  <% @agents.each do |agent| %>
+      <tr>
+        <td><%= agent.name %></td>
+        <td><%= agent.suburb %></td>
+        <td><%= link_to "Edit", edit_agent_path(agent) %></td>
+        <td><%= link_to "Show", agent_path(agent) %> </td>
+      </tr>
+  <% end %>
+</table>

@@ -2,3 +2,6 @@
 
 <p>Title: <%= @agent.name %></p>
 <p>Suburb: <%= @agent.suburb %></p>
+
+<%= link_to "Edit this article", edit_agent_path(@agent) %> |
+<%= link_to "Back to agents listing", agents_path %>
