@@ -4,10 +4,18 @@ class AgentsController < ApplicationController
   end
 
   def create
-    # render plain: params[:agent].inspect
     @agent = Agent.new(agent_params)
-    @agent.save
-    redirect_to agents_show(@agent)
+
+    if @agent.save
+      flash[:notice] = "Agent was successfully created"
+      redirect_to agent_path(@agent)
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @agent = Agent.find(params[:id])
   end
 
   private
