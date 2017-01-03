@@ -2,29 +2,36 @@ $navbar-default-bg: #6730EC;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-#logo {
-  float: left;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  font-weight: bold;
-}
+//
+//#logo {
+//  float: left;
+//  font-size: 1em;
+//  color: #fff;
+//  text-transform: uppercase;
+//  letter-spacing: -1px;
+//  font-weight: bold;
+//  //background-image: asset-url('HouseLogo.png');
+//  background-size: 100%;
+//}
 
 #logo:hover {
   color: #ffffff;
   text-decoration: none;
 }
 
+.navbar-brand#logo {
+  margin-top: 0;
+  padding-top: 0;
+  float: left;
+  height: 102px;
+}
 .center {
   text-align: center;
 }
 
 .jumbotron {
-  background-image: asset-url('HouseLogo.png');
-  background-size: cover;
-  height: 550px;
+  //background-size: cover;
+  //height: 550px;
 }
 
 .jumbotron h1 {
@@ -64,6 +71,7 @@ $navbar-default-bg: #6730EC;
   float: left;
   margin-left: 15px;
 }
+
 //Colour palette
 //#http://www.colorhunt.co/hot
 //#D2F6FC
