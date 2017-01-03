@@ -18,7 +18,7 @@ class AgentsController < ApplicationController
     @agent = Agent.new(agent_params)
 
     if @agent.save
-      flash[:notice] = "Agent was successfully created"
+      flash[:success] = "Agent was successfully created"
       redirect_to agent_path(@agent)
     else
       render 'new'
@@ -27,7 +27,7 @@ class AgentsController < ApplicationController
 
   def update
     if @agent.update(agent_params)
-      flash[:notice] = 'Agent was successfully updated'
+      flash[:success] = 'Agent was successfully updated'
       redirect_to agent_path(@agent)
     else
       render 'edit'
@@ -40,7 +40,7 @@ class AgentsController < ApplicationController
 
   def destroy
     @agent.destroy
-    flash[:notice] = 'Agent was successfully deleted'
+    flash[:danger] = 'Agent was successfully deleted'
     redirect_to agents_path
   end
 
