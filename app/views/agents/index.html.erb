@@ -1,23 +1,22 @@
-<h1>Listing all articles</h1>
-<p>
-  <%= link_to "Create new agent", new_agent_path %>
-</p>
-<table>
-  <tr>
-    <th>
-      Name
-    </th>
-    <th>
-      Suburb
-    </th>
-  </tr>
-  <% @agents.each do |agent| %>
-      <tr>
-        <td><%= agent.name %></td>
-        <td><%= agent.suburb %></td>
-        <td><%= link_to "Edit", edit_agent_path(agent) %></td>
-        <td><%= link_to "Show", agent_path(agent) %> </td>
-        <td><%= link_to "Delete", agent_path(agent), method: :delete, data: {confirm: 'Are you sure?'} %> </td>
-      </tr>
-  <% end %>
-</table>
+<h1 align="center">Listing all articles</h1>
+
+<% @agents.each do |agent| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+          <div class="agent-name">
+            <%= link_to agent.name, agent_path(agent) %>
+          </div>
+          <div class="agent-suburb">
+            <%= agent.suburb %>
+          </div>
+          <div>
+            <%= link_to "Edit this article", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
+            <%= link_to "Delete this article", agent_path(agent), method: :delete,
+                        data: {confirm: "Are you sure you want to delete the selected agent"},
+                        class: "btn btn-xs btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
