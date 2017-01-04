@@ -15,6 +15,7 @@ class AgentsController < ApplicationController
   end
 
   def create
+    debugger
     @agent = Agent.new(agent_params)
 
     if @agent.save
