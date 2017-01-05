@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="well col-xs-8 col-xs-offset-2">
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-4"><label>Agent:</label></div>
+      <div class="col-xs-3"><%= @rating.agent.name %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-4"><label>Suburb:</label></div>
+      <div class="col-xs-3"><%= @rating.agent.suburb %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-4"><label>Star rating:</label></div>
+      <div class="col-xs-3"><%= @rating.star_rating %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-4"><label>Review:</label></div>
+      <div class="col-xs-3"><%= @rating.rating_text %></div>
+    </div>
+    <div class="row agent-meta-details">
+      <div class="col-xs-8 col-xs-offset-4">
+        <small>Created by:  <%= @rating.user.username if @rating.user %>
+          <%= time_ago_in_words(@rating.created_at) %> ago,
+          last updated: <%= time_ago_in_words(@rating.updated_at) %> ago
+        </small>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="col-xs-offset-2">
+  <%= link_to "Edit this rating", edit_rating_path(@rating), class: "btn btn-xs btn-primary" %>
+  <%= link_to "Delete this rating", rating_path(@rating), method: :delete,
+              data: {confirm: "Are you sure you want to delete the selected rating"},
+              class: "btn btn-xs btn-danger" %>
+  <%= link_to "View all ratings", ratings_path, class: "btn btn-xs btn-success" %>
+</div>

@@ -1,4 +1,4 @@
-class Review < ActiveRecord::Base
+class Rating < ActiveRecord::Base
   belongs_to :user
   belongs_to :agent
   validates :user_id, presence: true

@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103221004) do
+ActiveRecord::Schema.define(version: 20170104175048) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "name"
     t.string   "suburb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "ratings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "agent_id"
     t.integer  "star_rating"
-    t.text     "review_text"
+    t.text     "rating_text"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -31,8 +32,9 @@ ActiveRecord::Schema.define(version: 20170103221004) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
 end

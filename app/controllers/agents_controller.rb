@@ -2,7 +2,7 @@ class AgentsController < ApplicationController
 
   before_action :set_agent, only: [:edit, :update, :show, :destroy]
   def index
-    @agents = Agent.all
+    @agents = Agent.paginate(page: params[:page], per_page: 5)
     puts "number of agents is #{@agents.size}"
   end
 
@@ -15,9 +15,9 @@ class AgentsController < ApplicationController
   end
 
   def create
-    debugger
+    # debugger
     @agent = Agent.new(agent_params)
-
+    @agent.user = User.first
     if @agent.save
       flash[:success] = "Agent was successfully created"
       redirect_to agent_path(@agent)

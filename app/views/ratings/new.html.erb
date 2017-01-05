@@ -1,0 +1,19 @@
+<h1 align="center">This is a form for a new rating</h1>
+
+<div class="row">
+  <div class="well col-xs-8 col-xs-offset-2">
+    <div class="row">
+      <div class="well col-xs-8 col-xs-offset-2">
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-4"><label>Name:</label></div>
+          <div class="col-xs-3"><%= @rating.agent.name %></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-4"><label>Suburb:</label></div>
+          <div class="col-xs-3"><%= @rating.agent.suburb %></div>
+        </div>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
