@@ -6,7 +6,6 @@ class AgentsController < ApplicationController
 
   def index
     @agents = Agent.paginate(page: params[:page], per_page: 5)
-    puts "number of agents is #{@agents.size}"
   end
 
   def new
