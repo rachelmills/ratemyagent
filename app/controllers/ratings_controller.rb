@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, only: [:create]
 
   def home
     redirect_to agents_path if logged_in?
@@ -12,7 +13,7 @@ class RatingsController < ApplicationController
   def create
     debugger
     @rating = Rating.new(rating_params)
-    @rating.user = User.first
+    @rating.user = current_user
     @rating.agent = Agent.first
 
     if @rating.save

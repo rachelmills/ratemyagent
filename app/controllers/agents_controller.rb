@@ -20,7 +20,7 @@ class AgentsController < ApplicationController
   def create
     # debugger
     @agent = Agent.new(agent_params)
-    @agent.user = User.first
+    @agent.user = current_user
     if @agent.save
       flash[:success] = "Agent was successfully created"
       redirect_to agent_path(@agent)
