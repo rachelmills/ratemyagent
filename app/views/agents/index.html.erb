@@ -1,6 +1,6 @@
 <h1 align="center">Listing all agents</h1>
 <div align="center">
-  <%= will_paginate renderer: BootstrapPagination::Rails%>
+  <%= will_paginate renderer: BootstrapPagination::Rails %>
 </div>
 <% @agents.each do |agent| %>
     <div class="row">
@@ -12,17 +12,19 @@
           <div class="agent-suburb">
             <%= agent.suburb %>
           </div>
-          <div>
-            <%= link_to "Edit this article", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
-            <%= link_to "Delete this article", agent_path(agent), method: :delete,
-                        data: {confirm: "Are you sure you want to delete the selected agent"},
-                        class: "btn btn-xs btn-danger" %>
-          </div>
+          <% if logged_in? && current_user == agent.user %>
+              <div>
+                <%= link_to "Edit this article", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
+                <%= link_to "Delete this article", agent_path(agent), method: :delete,
+                            data: {confirm: "Are you sure you want to delete the selected agent"},
+                            class: "btn btn-xs btn-danger" %>
+              </div>
+          <% end %>
         </div>
       </div>
     </div>
 <% end %>
 <div align="center">
-  <%= will_paginate renderer: BootstrapPagination::Rails%>
+  <%= will_paginate renderer: BootstrapPagination::Rails %>
 </div>
 

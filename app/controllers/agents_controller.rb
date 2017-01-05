@@ -1,6 +1,9 @@
 class AgentsController < ApplicationController
 
   before_action :set_agent, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+
   def index
     @agents = Agent.paginate(page: params[:page], per_page: 5)
     puts "number of agents is #{@agents.size}"
@@ -53,5 +56,12 @@ class AgentsController < ApplicationController
 
   def agent_params
     params.require(:agent).permit(:name, :suburb)
+  end
+
+  def require_same_user
+    if current_user != @agent.user
+      flash[:danger] = 'You can only edit or delete an agent you created'
+      redirect_to root_path
+    end
   end
 end

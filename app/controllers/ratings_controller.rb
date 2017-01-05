@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:edit, :update, :show, :destroy]
 
   def home
-
+    redirect_to agents_path if logged_in?
   end
 
   def new
