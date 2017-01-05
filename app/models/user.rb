@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   has_many :agents
 
   before_save { self.email = email.downcase }

@@ -12,7 +12,7 @@
           <div class="agent-suburb">
             <%= agent.suburb %>
           </div>
-          <% if logged_in? && current_user == agent.user %>
+          <% if logged_in? && (current_user == agent.user || current_user.admin?) %>
               <div>
                 <%= link_to "Edit this article", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
                 <%= link_to "Delete this article", agent_path(agent), method: :delete,
