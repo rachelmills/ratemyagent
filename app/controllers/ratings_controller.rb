@@ -7,14 +7,16 @@ class RatingsController < ApplicationController
   end
 
   def new
+    @agent = Agent.find(params[:agent_id])
     @rating = Rating.new
   end
 
   def create
-    debugger
+    # debugger
+    @agent = Agent.find(params[:agent_id])
     @rating = Rating.new(rating_params)
     @rating.user = current_user
-    @rating.agent = Agent.first
+    @rating.agent = @agent
 
     if @rating.save
       flash[:success] = "Rating was successfully created"
@@ -26,7 +28,16 @@ class RatingsController < ApplicationController
 
 
   def index
-    @ratings = Rating.all
+    # debugger
+    if params[:agent_id]
+      @agent = Agent.find(params[:agent_id])
+      @ratings = @agent.ratings.paginate(page: params[:page], per_page: 5)
+    else
+      @ratings = Rating.paginate(page: params[:page], per_page: 5)
+      puts "ratings are "
+      puts @ratings.each { |rating| rating.agent.name }
+    end
+
   end
 
   def edit

@@ -1,13 +1,14 @@
 <%= render 'shared/errors', obj: @rating %>
 <div class="row">
   <div class="col-xs-12">
-    <%= form_for(@rating, :html => {class: "form-horizontal", role: "form"}) do |a| %>
+    <%= form_for([@agent, @rating], :html => {class: "form-horizontal", role: "form"}) do |a| %>
+
         <div class="form-group">
           <div class="control-label col-sm-2">
             <%= a.label :star_rating %>
           </div>
           <div class="col-sm-8">
-            <%= a.text_field :star_rating, class: "form-control", placeholder: "number of stars" %>
+            <%= a.number_field :star_rating, in: 1..5, step: 1, class: "form-control", placeholder: "number of stars" %>
           </div>
         </div>
 
@@ -16,17 +17,18 @@
             <%= a.label :rating_text, "Review" %>
           </div>
           <div class="col-sm-8">
-            <%= a.text_field :rating_text, class: "form-control", placeholder: "number of stars" %>
+            <%= a.text_area :rating_text, rows: 7, required: true, class: "form-control",
+                            placeholder: 'Provide more detail here if you wish' %>
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <%= a.submit class: 'btn btn-primary btn-lg' %>
+            <%= a.submit class: 'btn btn-primary' %>
           </div>
         </div>
     <% end %>
-    <div class="col-xs-4 col-xs-offset-4">
+    <div class="col-xs-6 col-xs-offset-3">
       [ <%= link_to "Cancel request and return to agents listing", agents_path %> ]
     </div>
   </div>

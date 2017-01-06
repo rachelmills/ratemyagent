@@ -12,12 +12,18 @@
           <div class="agent-suburb">
             <%= agent.suburb %>
           </div>
-          <% if logged_in? && (current_user == agent.user || current_user.admin?) %>
+          <% if logged_in? %>
               <div>
-                <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
-                <%= link_to "Delete this agent", agent_path(agent), method: :delete,
-                            data: {confirm: "Are you sure you want to delete the selected agent"},
-                            class: "btn btn-xs btn-danger" %>
+                <%= link_to "Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-info" %>
+                <% if current_user == agent.user || current_user.admin? %>
+
+                    <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
+                    <%= link_to "Delete this agent", agent_path(agent), method: :delete,
+                                data: {confirm: "Are you sure you want to delete the selected agent"},
+                                class: "btn btn-xs btn-danger" %>
+
+
+                <% end %>
               </div>
           <% end %>
         </div>
