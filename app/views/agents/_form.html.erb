@@ -12,10 +12,18 @@
         </div>
         <div class="form-group">
           <div class="control-label col-sm-2">
-            <%= a.label :suburb %>
+            <%= a.label :state_id, "State or Territory" %>
           </div>
           <div class="col-sm-8">
-            <%= a.text_field :suburb, class: "form-control", placeholder: "hame of suburb" %>
+            <%= a.collection_select :state_id, State.order(:state_name), :id, :state_name, include_blank: true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="control-label col-sm-2">
+            <%= a.label :suburb_id %>
+          </div>
+          <div class="col-sm-8">
+            <%= a.grouped_collection_select :suburb_id, State.order(:state_name), :suburbs_by_name, :state_name, :id, :suburb_name, include_blank: true %>
           </div>
         </div>
         <div class="form-group">
@@ -24,6 +32,7 @@
           </div>
         </div>
     <% end %>
+
     <div class="col-xs-4 col-xs-offset-4">
       [ <%= link_to "Cancel request and return to agents listing", agents_path %> ]
     </div>

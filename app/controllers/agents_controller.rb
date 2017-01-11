@@ -9,15 +9,15 @@ class AgentsController < ApplicationController
   end
 
   def new
+    @states = State.all
+    @suburbs = Suburb.where('state_id = ?', State.first.id)
     @agent = Agent.new
   end
 
   def edit
-
   end
 
   def create
-    debugger
     @agent = Agent.new(agent_params)
     @agent.user = current_user
     if @agent.save
@@ -38,7 +38,7 @@ class AgentsController < ApplicationController
   end
 
   def show
-
+    @ratings = Rating.where(agent_id: @agent.id)
   end
 
   def destroy
@@ -54,7 +54,7 @@ class AgentsController < ApplicationController
   end
 
   def agent_params
-    params.require(:agent).permit(:name, :suburb)
+    params.require(:agent).permit(:name, :suburb_id, :state_id)
   end
 
   def require_same_user

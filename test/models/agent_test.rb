@@ -4,7 +4,8 @@ class AgentTest < ActiveSupport::TestCase
   def setup
     @user = User.new(username: "Test User", email: "email@email.com", password: "password")
     @user.save
-    @agent = Agent.new(name: "Test Agent", suburb: "Nundah", user_id: @user.id)
+
+    @agent = Agent.new(name: "Test Agent", suburb_id: 1, user_id: @user.id, state_id: 2)
   end
 
   test "agent should be valid" do

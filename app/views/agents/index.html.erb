@@ -5,27 +5,49 @@
 <% @agents.each do |agent| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <div class="well well-lg">
-          <div class="agent-name">
-            <%= link_to agent.name, agent_path(agent) %>
-          </div>
-          <div class="agent-suburb">
-            <%= agent.suburb %>
-          </div>
-          <% if logged_in? %>
-              <div>
-                <%= link_to "Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-info" %>
-                <% if current_user == agent.user || current_user.admin? %>
-
-                    <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
-                    <%= link_to "Delete this agent", agent_path(agent), method: :delete,
-                                data: {confirm: "Are you sure you want to delete the selected agent"},
-                                class: "btn btn-xs btn-danger" %>
-
-
-                <% end %>
+        <div class="well" id="agents">
+          <div class="row">
+            <div class="pull-left">
+              <div class="agent-name">
+                <%= link_to agent.name, agent_path(agent) %>
               </div>
-          <% end %>
+              <div class="agent-suburb">
+                <%= agent.suburb.suburb_name %>
+              </div>
+              <div class="rating">
+                <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6730EC;">
+                  <%= pluralize(number_of_ratings(agent), "review") %>
+                </div>
+              </div>
+            </div>
+            <div class="pull-right">
+              <div class="agent-buttons">
+                <div class="row">
+                  <% if logged_in? %>
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <%= link_to " Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-success" %>
+                        </div>
+                      </div>
+                      <% if current_user.admin? %>
+                          <div class="row">
+                            <div class="col-xs-3">
+                              <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-3">
+                              <%= link_to "Delete this agent", agent_path(agent), method: :delete,
+                                          data: {confirm: "Are you sure you want to delete the selected agent"},
+                                          class: "btn btn-xs btn-danger" %>
+                            </div>
+                          </div>
+                      <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -34,3 +56,12 @@
   <%= will_paginate renderer: BootstrapPagination::Rails %>
 </div>
 
+<script>
+    $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function () {
+            return $(this).attr('data-score');
+        }
+    });
+</script>

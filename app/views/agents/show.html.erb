@@ -1,12 +1,16 @@
 <div class="row">
   <div class="well col-xs-8 col-xs-offset-2">
     <div class="row">
-      <div class="col-xs-2 col-xs-offset-4"><label>Name:</label></div>
-      <div class="col-xs-3"><%= @agent.name %></div>
+      <div class="col-xs-2 col-xs-offset-2"><label>Name:</label></div>
+      <div class="col-xs-5 agent-name"><%= @agent.name %></div>
     </div>
     <div class="row">
-      <div class="col-xs-2 col-xs-offset-4"><label>Suburb:</label></div>
-      <div class="col-xs-3"><%= @agent.suburb %></div>
+      <div class="col-xs-2 col-xs-offset-2"><label>Suburb:</label></div>
+      <div class="col-xs-5 agent-suburb"><%= @agent.suburb.suburb_name %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2"><label>State:</label></div>
+      <div class="col-xs-5 agent-state"><%= @agent.state.state_name %></div>
     </div>
     <div class="row agent-meta-details">
       <div class="col-xs-8 col-xs-offset-4">
@@ -17,14 +21,49 @@
       </div>
     </div>
   </div>
+</div>
 
+<div class="row">
+  <div class="col-xs-offset-2 agent-buttons">
+    <% if logged_in? && (current_user == @agent.user || current_user.admin?) %>
+        <%= link_to 'Edit this agent', edit_agent_path(@agent), class: 'btn btn-xs btn-primary' %>
+        <%= link_to 'Delete this agent', agent_path(@agent), method: :delete,
+                    data: {confirm: 'Are you sure you want to delete the selected agent'},
+                    class: 'btn btn-xs btn-danger' %>
+    <% end %>
+    <%= link_to 'View all agents', agents_path, class: 'btn btn-xs btn-success' %>
+  </div>
 </div>
-<div class="col-xs-offset-2">
-  <% if logged_in? && (current_user == @agent.user || current_user.admin?) %>
-      <%= link_to "Edit this agent", edit_agent_path(@agent), class: "btn btn-xs btn-primary" %>
-      <%= link_to "Delete this agent", agent_path(@agent), method: :delete,
-                  data: {confirm: "Are you sure you want to delete the selected agent"},
-                  class: "btn btn-xs btn-danger" %>
-  <% end %>
-  <%= link_to "View all agents", agents_path, class: "btn btn-xs btn-success" %>
+
+<div class="row">
+  <div class="well col-xs-8 col-xs-offset-2">
+    <div class="row">
+      <% if @ratings.blank? %>
+          <h2>There are not reviews yet. Would you like to review this agent?</h2>
+          <%= link_to "Review agent", new_agent_rating_path(@agent), class: "btn btn-info" %>
+      <% else %>
+          <h4>
+            <div class="star-rating" data-score="<%= average_rating(@agent) %>" style="color: #6730EC; padding-left: 10px">
+              <%= pluralize(number_of_ratings(@agent), "review") %>
+            </div>
+          </h4>
+          <% @ratings.each do |rating| %>
+              <div class="rating-list">
+                <div class="star-rating" data-score="<%= average_rating(@agent) %>"></div>
+                <div><%= rating.rating_text %></div>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+<script>
+    $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function () {
+            return $(this).attr('data-score');
+        }
+    });
+</script>

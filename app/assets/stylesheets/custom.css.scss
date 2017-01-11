@@ -23,15 +23,10 @@ $navbar-default-bg: #6730EC;
   margin-top: 0;
   padding-top: 0;
   float: left;
-  height: 102px;
-}
-.center {
-  text-align: center;
 }
 
-.jumbotron {
-  //background-size: cover;
-  //height: 550px;
+.center {
+  text-align: center;
 }
 
 .jumbotron h1 {
@@ -74,15 +69,27 @@ $navbar-default-bg: #6730EC;
 
 .agent-name {
   margin-bottom: 5px;
+  font-size: medium;
+}
+
+.agent-name a {
+  color: #6730EC;
 }
 
 .agent-suburb {
   margin-bottom: 5px;
+  font-size: medium;
+}
+
+.agent-state {
+  margin-bottom: 5px;
+  font-size: medium;
 }
 
 .agent-meta-details {
   margin-top: 15px;
-  border-top: 1px solid #EAEAEA;
+  border-top: 1px solid #D2F6FC;
+  padding-top: 10px;
 }
 
 .action-buttons {
@@ -93,9 +100,149 @@ $navbar-default-bg: #6730EC;
   list-style: none;
   padding-left: 0;
 }
+
+.navbar-default li {
+  line-height: 107px;
+}
+
+.navbar-default li a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-default .form-group {
+  vertical-align: middle;
+  line-height: 107px;
+}
+
+#dropdown {
+  line-height: 10px;
+}
+
+li.a.menu-items {
+  color: #D2F6FC;
+}
+
+a.dropdown-toggle {
+  color: #D2F6FC;
+}
+
+.pagination > .active > span {
+  background-color: #7984EE;
+  border-color: #7984EE;
+}
+
+.pagination > li > a {
+  color: #7984EE;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #7984EE;
+}
+
+.navbar-nav > li > a:focus {
+  color: white;
+}
+
+.navbar-nav > .open > a:focus {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.btn-default {
+  color: #7984EE;
+  background-color: white;
+}
+
+.btn-default:hover {
+  color: white;
+  background-color: #7984EE;;
+}
+
+.form-control {
+  color: #7984EE;
+  background-color: white;
+}
+
+.form-controler::-webkit-input-placeholder {
+  color: white;
+}
+
+*::-webkit-input-placeholder {
+  color: white;
+}
+
+.form-control::-moz-placeholder {
+  color: #7984EE;
+}
+
+*::-moz-placeholder {
+  color: #7984EE;
+}
+
+.form-control:-ms-input-placeholder {
+  color: white;
+}
+
+.well {
+  background-color: white;
+  border-color: #6730EC;
+}
+.well#agents {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.well#home {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+}
+
+.row#agent-list {
+  margin-left: 10px;
+}
+
+.agent-buttons .btn.btn-xs.btn-success {
+  margin: 3px;
+  width: 103px;
+}
+
+.agent-buttons .btn.btn-xs.btn-primary {
+  margin: 3px;
+  width: 103px;
+}
+
+.agent-buttons .btn.btn-xs.btn-danger {
+  margin: 3px;
+  width: 103px;
+}
+
+.agent-buttons {
+  margin-bottom: 10px;
+}
+
+div.star_rating {
+  font-size: 16px;
+}
+
+.rating-list {
+  border-top: 1px solid #D2F6FC;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
 //Colour palette
 //#http://www.colorhunt.co/hot
 //#D2F6FC
 //#A9D2FF
 //#7984EE
 //#6730EC
+
