@@ -3,8 +3,9 @@ require 'test_helper'
 class RatingTest < ActiveSupport::TestCase
   def setup
     @user = User.create(username: 'Test User', email: 'email@email.com', password: 'password')
-
-    @agent = Agent.create(name: 'Test Agent', suburb_id: 1, user_id: @user.id, state_id: 2)
+    @state = State.create(state_name: 'Queensland')
+    @suburb = Suburb.create(suburb_name: 'Nundah', state_id: @state.id)
+    @agent = Agent.create(name: 'Test Agent', suburb: @suburb, user_id: @user.id, state: @state)
     @rating = Rating.new(user: @user, agent: @agent, star_rating: 3, rating_text: "Good agent")
   end
 

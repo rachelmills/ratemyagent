@@ -9,8 +9,6 @@ class AgentsController < ApplicationController
   end
 
   def new
-    @states = State.all
-    @suburbs = Suburb.where('state_id = ?', State.first.id)
     @agent = Agent.new
   end
 

@@ -1,4 +1,4 @@
-jQuery(function () {
+function filterSuburbsList() {
     var suburbs;
     suburbs = $('#agent_suburb_id').html();
     console.log(suburbs);
@@ -14,4 +14,4 @@ jQuery(function () {
             return $('#agent_suburb_id').empty();
         }
     });
-});
+}

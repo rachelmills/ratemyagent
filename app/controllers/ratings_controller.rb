@@ -34,8 +34,6 @@ class RatingsController < ApplicationController
       @ratings = @agent.ratings.paginate(page: params[:page], per_page: 5)
     else
       @ratings = Rating.paginate(page: params[:page], per_page: 5)
-      puts "ratings are "
-      puts @ratings.each { |rating| rating.agent.name }
     end
 
   end
@@ -73,6 +71,5 @@ class RatingsController < ApplicationController
   def rating_params
     params.require(:rating).permit(:star_rating, :rating_text)
   end
-
 
 end

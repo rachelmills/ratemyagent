@@ -2,10 +2,10 @@ require 'test_helper'
 
 class AgentTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(username: "Test User", email: "email@email.com", password: "password")
-    @user.save
-
-    @agent = Agent.new(name: "Test Agent", suburb_id: 1, user_id: @user.id, state_id: 2)
+    @user = User.create(username: "Test User", email: "email@email.com", password: "password")
+    @state = State.create(state_name: "Queensland")
+    @suburb = Suburb.create(suburb_name: "Nundah", state_id: @state.id)
+    @agent = Agent.new(name: "Test Agent", suburb: @suburb, user_id: @user.id, state: @state)
   end
 
   test "agent should be valid" do
@@ -14,32 +14,32 @@ class AgentTest < ActiveSupport::TestCase
   end
 
   test "agent name should be present" do
-    @agent.name = " "
+    @agent.name = ""
     assert_not @agent.valid?
   end
 
-  test "agent suburb should be present" do
-    @agent.suburb = ""
+  test "user_id should be presnet" do
+    @agent.user_id = ''
     assert_not @agent.valid?
   end
 
-  test "agent name should not be too long" do
-    @agent.name = "aa"
+  test "suburb_id should be present" do
+    @agent.suburb_id = ""
     assert_not @agent.valid?
   end
 
-  test "agent suburb should not be too long" do
-    @agent.suburb = "ss"
+  test "state_id should be present" do
+    @agent.state_id = ""
     assert_not @agent.valid?
   end
 
-  test "agent name should not be too short" do
-    @agent.name = "morethanfiftycharactersmorethanfiftycharactersmorethanfiftycharacters"
+  test "name should not be too long" do
+    @agent.name = 'aa'
     assert_not @agent.valid?
   end
 
-  test "agent suburb should not be too short" do
-    @agent.suburb = "morethanthirtycharactersmorethanthirtycharacters"
+  test "name should not be too short" do
+    @agent.name = 'morethanfiftycharactersmorethanfiftycharactersmorethanfiftycharacters'
     assert_not @agent.valid?
   end
 
