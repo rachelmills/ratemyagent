@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112190039) do
+ActiveRecord::Schema.define(version: 20170112225406) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "name"
-    t.string   "suburb_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.string   "state_id"
+    t.integer  "suburb_id"
+    t.integer  "state_id"
   end
 
   create_table "ratings", force: :cascade do |t|
