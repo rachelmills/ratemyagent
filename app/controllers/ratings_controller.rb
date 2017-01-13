@@ -3,7 +3,7 @@ class RatingsController < ApplicationController
   before_action :require_user, only: [:create]
 
   def home
-    redirect_to agents_path if logged_in?
+    # redirect_to agents_path if logged_in?
   end
 
   def new
@@ -19,13 +19,12 @@ class RatingsController < ApplicationController
     @rating.agent = @agent
 
     if @rating.save
-      flash[:success] = "Rating was successfully created"
+      flash[:success] = 'Rating was successfully created'
       redirect_to rating_path(@rating)
     else
       render 'new'
     end
   end
-
 
   def index
     # debugger
@@ -35,11 +34,9 @@ class RatingsController < ApplicationController
     else
       @ratings = Rating.paginate(page: params[:page], per_page: 5)
     end
-
   end
 
   def edit
-
   end
 
   def update
@@ -56,7 +53,6 @@ class RatingsController < ApplicationController
 
   end
 
-
   def destroy
     @rating.destroy
     flash[:danger] = 'Rating was successfully deleted'
@@ -71,5 +67,4 @@ class RatingsController < ApplicationController
   def rating_params
     params.require(:rating).permit(:star_rating, :rating_text)
   end
-
 end

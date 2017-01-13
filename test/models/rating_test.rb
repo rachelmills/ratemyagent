@@ -6,7 +6,7 @@ class RatingTest < ActiveSupport::TestCase
     @state = State.create(state_name: 'Queensland')
     @suburb = Suburb.create(suburb_name: 'Nundah', state_id: @state.id)
     @agent = Agent.create(name: 'Test Agent', suburb: @suburb, user_id: @user.id, state: @state)
-    @rating = Rating.new(user: @user, agent: @agent, star_rating: 3, rating_text: "Good agent")
+    @rating = Rating.new(user: @user, agent: @agent, star_rating: 3, rating_text: 'Good agent')
   end
 
   test 'agent should be valid' do

@@ -4,5 +4,5 @@ class Agent < ActiveRecord::Base
   belongs_to :suburb
   belongs_to :state
 
-  validates :name, presence: true, length: {minimum: 3, maximum: 50}
+  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
 end

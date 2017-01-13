@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     resources :ratings, shallow: true
   end
 
-
-
   get 'ratings', to: 'ratings#index', as: :ratings
 
   get 'signup', to: 'users#new'

@@ -26,22 +26,22 @@ require 'csv'
 
 # NB The above method was taken from https://gist.github.com/arjunvenkat/1115bc41bf395a162084
 
-# puts "Importing states"
-#
-# csv_text = File.read(Rails.root.join("aus_state.csv"))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   st = State.new
-#   st.state_name = row['state_name']
-#   st.save
-#   puts "#{st.state_name} saved"
-# end
-#
-# puts "There are now #{State.count} rows in the State table"
+puts 'Importing states'
 
-puts "Importing suburbs"
+csv_text = File.read(Rails.root.join('aus_state.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  st = State.new
+  st.state_name = row['state_name']
+  st.save
+  puts "#{st.state_name} saved"
+end
 
-csv_text = File.read(Rails.root.join("aus_suburb.csv"))
+puts "There are now #{State.count} rows in the State table"
+
+puts 'Importing suburbs'
+
+csv_text = File.read(Rails.root.join('aus_suburb.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   su = Suburb.new

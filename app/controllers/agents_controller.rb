@@ -1,5 +1,4 @@
 class AgentsController < ApplicationController
-
   before_action :set_agent, only: [:edit, :update, :show, :destroy]
   before_action :require_user, except: [:index, :show]
   before_action :require_same_user, only: [:edit, :update, :destroy]
@@ -19,7 +18,7 @@ class AgentsController < ApplicationController
     @agent = Agent.new(agent_params)
     @agent.user = current_user
     if @agent.save
-      flash[:success] = "Agent was successfully created"
+      flash[:success] = 'Agent was successfully created'
       redirect_to agent_path(@agent)
     else
       render 'new'
@@ -56,7 +55,7 @@ class AgentsController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @agent.user &&  !current_user.admin?
+    if current_user != @agent.user && !current_user.admin?
       flash[:danger] = 'You can only edit or delete an agent you created'
       redirect_to root_path
     end

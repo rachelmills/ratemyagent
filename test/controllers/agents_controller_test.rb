@@ -21,7 +21,7 @@ class AgentsControllerTest < ActionController::TestCase
   end
 
   test 'should get show' do
-    get(:show, params: {'id': @agent.id})
+    get(:show, params: { 'id': @agent.id })
     assert_response :success
   end
 end
