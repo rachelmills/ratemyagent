@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115144303) do
+ActiveRecord::Schema.define(version: 20170115194436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170115144303) do
     t.integer  "user_id"
     t.string   "suburb"
     t.string   "state"
+    t.index ["name", "suburb"], name: "index_agents_on_name_and_suburb", using: :btree
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170115144303) do
     t.text     "rating_text"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["agent_id", "user_id"], name: "index_ratings_on_agent_id_and_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170115144303) do
     t.datetime "updated_at",                      null: false
     t.string   "password_digest"
     t.boolean  "admin",           default: false
+    t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["username"], name: "index_users_on_username", using: :btree
   end
 
 end

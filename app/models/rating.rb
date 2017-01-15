@@ -10,4 +10,5 @@ class Rating < ActiveRecord::Base
   validates :rating_text, presence: true, length: { minimum: 10, maximum: 500 }
   validates :user_id, presence: true
   validates :agent_id, presence: true
+  validates :agent, :presence => true, :uniqueness => { :scope => :user }
 end

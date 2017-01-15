@@ -27,4 +27,10 @@ class RatingTest < ActiveSupport::TestCase
     @rating.star_rating = 6
     assert_not @rating.valid?
   end
+
+  test 'user can not rate agent more than once' do
+    @rating.save
+    new_rating = Rating.new(user: @user, agent: @agent, star_rating: 3, rating_text: 'Another review for this agent')
+    assert_not new_rating.valid?
+  end
 end
