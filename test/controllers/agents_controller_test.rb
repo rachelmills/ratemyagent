@@ -3,9 +3,7 @@ require 'test_helper'
 class AgentsControllerTest < ActionController::TestCase
   def setup
     @user = User.create(username: 'Test User', email: 'email@email.com', password: 'password')
-    @state = State.create(state_name: 'Queensland')
-    @suburb = Suburb.create(suburb_name: 'Nundah', state_id: @state.id)
-    @agent = Agent.create(name: 'Test agent', suburb: @suburb, user_id: @user.id, state: @state)
+    @agent = Agent.create(name: 'Test agent', suburb: 'Nundah', user_id: @user.id, state: 'QLD')
   end
 
   test 'should get agents index' do

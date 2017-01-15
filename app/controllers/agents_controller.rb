@@ -51,7 +51,7 @@ class AgentsController < ApplicationController
   end
 
   def agent_params
-    params.require(:agent).permit(:name, :suburb_id, :state_id)
+    params.require(:agent).permit(:name, :suburb, :state)
   end
 
   def require_same_user

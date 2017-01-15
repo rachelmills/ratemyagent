@@ -1,17 +1,15 @@
 function filterSuburbsList() {
     var suburbs;
-    suburbs = $('#agent_suburb_id').html();
-    console.log(suburbs);
-    return $('#agent_state_id').change(function () {
+    suburbs = $('#agent_suburb').html();
+    return $('#state_select').change(function () {
         var state, escaped_state, options;
-        state = $('#agent_state_id :selected').text();
+        state = $('#state_select :selected').text();
         escaped_state = state.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
         options = $(suburbs).filter("optgroup[label=" + escaped_state + "]").html();
-        console.log(options);
         if (options) {
-            return $('#agent_suburb_id').html(options);
+            return $('#agent_suburb').html(options);
         } else {
-            return $('#agent_suburb_id').empty();
+            return $('#agent_suburb').empty();
         }
     });
 }

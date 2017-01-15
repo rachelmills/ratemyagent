@@ -3,13 +3,10 @@ require 'test_helper'
 class AgentTest < ActiveSupport::TestCase
   def setup
     @user = User.create(username: 'Test User', email: 'email@email.com', password: 'password')
-    @state = State.create(state_name: 'Queensland')
-    @suburb = Suburb.create(suburb_name: 'Nundah', state_id: @state.id)
-    @agent = Agent.new(name: 'Test Agent', suburb: @suburb, user_id: @user.id, state: @state)
+    @agent = Agent.new(name: 'Test Agent', suburb: 'Nundah', user_id: @user.id, state: 'QLD')
   end
 
   test 'agent should be valid' do
-    @agent.save
     assert @agent.valid?
   end
 
@@ -23,13 +20,25 @@ class AgentTest < ActiveSupport::TestCase
     assert_not @agent.valid?
   end
 
-  test 'suburb_id should be present' do
-    @agent.suburb_id = ''
+  test 'suburb should be present' do
+    @agent.suburb = ''
     assert_not @agent.valid?
   end
 
-  test 'state_id should be present' do
-    @agent.state_id = ''
+  test 'state should be present' do
+    @agent.state = ''
+    assert_not @agent.valid?
+  end
+
+  test 'state should be 2 or 3 characters' do
+    @agent.state = 'A'
+    assert_not @agent.valid?
+    @agent.state = 'ABCD'
+    assert_not @agent.valid?
+  end
+
+  test 'suburb should be longer than 3 characters' do
+    @agent.suburb = 'Abc'
     assert_not @agent.valid?
   end
 

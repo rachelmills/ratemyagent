@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112225406) do
+ActiveRecord::Schema.define(version: 20170115144303) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "agents", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "suburb_id"
-    t.integer  "state_id"
+    t.string   "suburb"
+    t.string   "state"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -28,15 +31,6 @@ ActiveRecord::Schema.define(version: 20170112225406) do
     t.text     "rating_text"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "states", force: :cascade do |t|
-    t.string "state_name"
-  end
-
-  create_table "suburbs", force: :cascade do |t|
-    t.string  "suburb_name"
-    t.integer "state_id"
   end
 
   create_table "users", force: :cascade do |t|

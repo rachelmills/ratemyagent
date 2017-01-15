@@ -1,7 +1,7 @@
 <%= render 'shared/errors', obj: @agent %>
 <div class="row">
   <div class="col-xs-12">
-    <%= form_for(@agent, :html => {class: "form-horizontal", role: "form"}) do |a| %>
+    <%= form_for(@agent, :html => { class: "form-horizontal", role: "form" }) do |a| %>
         <div class="form-group">
           <div class="control-label col-sm-2">
             <%= a.label :name %>
@@ -12,18 +12,21 @@
         </div>
         <div class="form-group">
           <div class="control-label col-sm-2">
-            <%= a.label :state_id, "State or Territory" %>
+            <%= a.label :state, "State or Territory" %>
           </div>
           <div class="col-sm-8">
-            <%= a.collection_select :state_id, State.order(:state_name), :id, :state_name, include_blank: true %>
+            <%= a.select :state, options_for_select(Ausburbs.states.collect { |state|
+              [state.name, state.name] }, 1), {}, { id: 'state_select' } %>
           </div>
         </div>
         <div class="form-group">
           <div class="control-label col-sm-2">
-            <%= a.label :suburb_id %>
+            <%= a.label :suburb %>
           </div>
           <div class="col-sm-8">
-            <%= a.grouped_collection_select :suburb_id, State.order(:state_name), :suburbs_by_name, :state_name, :id, :suburb_name, include_blank: true %>
+            <%= a.select :suburb, grouped_options_for_select(
+                Ausburbs.states.collect { |state| [state.name, sort_suburbs(
+                    remove_duplicates_from_suburbs (Ausburbs.state(state.name).suburbs.collect { |suburb| [suburb.name] }))] }) %>
           </div>
         </div>
         <div class="form-group">

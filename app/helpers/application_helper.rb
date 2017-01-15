@@ -10,4 +10,12 @@ module ApplicationHelper
   def number_of_ratings(agent)
     agent.ratings.size
   end
+
+  def remove_duplicates_from_suburbs(suburb_array)
+    suburb_array.uniq
+  end
+
+  def sort_suburbs(suburb_array)
+    suburb_array.sort
+  end
 end

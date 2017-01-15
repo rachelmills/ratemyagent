@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.4)
     ast (2.3.0)
+    ausburbs (0.2.1)
     autoprefixer-rails (6.4.0.3)
       execjs
     bcrypt (3.1.11)
@@ -185,6 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ausburbs
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.6)
   byebug

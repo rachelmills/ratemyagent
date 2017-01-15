@@ -3,13 +3,11 @@ require 'test_helper'
 class RatingTest < ActiveSupport::TestCase
   def setup
     @user = User.create(username: 'Test User', email: 'email@email.com', password: 'password')
-    @state = State.create(state_name: 'Queensland')
-    @suburb = Suburb.create(suburb_name: 'Nundah', state_id: @state.id)
-    @agent = Agent.create(name: 'Test Agent', suburb: @suburb, user_id: @user.id, state: @state)
+    @agent = Agent.create(name: 'Test Agent', suburb: 'Nundah', user_id: @user.id, state: 'QLD')
     @rating = Rating.new(user: @user, agent: @agent, star_rating: 3, rating_text: 'Good agent')
   end
 
-  test 'agent should be valid' do
+  test 'rating should be valid' do
     assert @rating.valid?
   end
 

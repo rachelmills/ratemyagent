@@ -12,7 +12,7 @@
                 <%= link_to agent.name, agent_path(agent) %>
               </div>
               <div class="agent-suburb">
-                <%= agent.suburb.suburb_name %>
+                <%= agent.suburb %>
               </div>
               <div class="rating">
                 <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6730EC;">
