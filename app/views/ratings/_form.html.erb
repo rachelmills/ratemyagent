@@ -1,14 +1,14 @@
 <%= render 'shared/errors', obj: @rating %>
 <div class="row">
   <div class="col-xs-12">
-    <%= form_for([@agent, @rating], :html => {class: "form-horizontal", role: "form"}) do |a| %>
+    <%= form_for([@agent, @rating], :html => { class: "form-horizontal", role: "form" }) do |a| %>
 
         <div class="form-group">
           <div class="control-label col-sm-2">
             <%= a.label :star_rating %>
           </div>
           <div class="col-sm-8">
-            <%= a.number_field :star_rating, in: 1..5, step: 1, class: "form-control", placeholder: "number of stars" %>
+            <div id="star-rating"></div>
           </div>
         </div>
 
@@ -33,3 +33,10 @@
     </div>
   </div>
 </div>
+
+<script>
+    $('#star-rating').raty({
+        path: '/assets/',
+        scoreName: 'rating[star_rating]'
+    });
+</script>

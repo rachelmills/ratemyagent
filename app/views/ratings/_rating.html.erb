@@ -7,11 +7,11 @@
         </div>
         <div class="row">
           <div class="col-xs-2 col-xs-offset-1"><label>Suburb:</label></div>
-          <div class="col-xs-5"><%= rating.agent.suburb.suburb_name %></div>
+          <div class="col-xs-5"><%= rating.agent.suburb %></div>
         </div>
         <div class="row">
           <div class="col-xs-2 col-xs-offset-1"><label>Star rating:</label></div>
-          <div class="col-xs-2"><%= rating.star_rating %></div>
+          <div class="col-xs-2 star-rating" data-score="<%= rating.star_rating %>"></div>
         </div>
         <div class="row">
           <div class="col-xs-2 col-xs-offset-1"><label>Review:</label></div>
@@ -28,3 +28,13 @@
       </div>
     </div>
 <% end %>
+
+<script>
+    $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function () {
+            return $(this).attr('data-score');
+        }
+    });
+</script>

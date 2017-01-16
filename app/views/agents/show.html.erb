@@ -39,8 +39,8 @@
   <div class="well col-xs-8 col-xs-offset-2">
     <div class="row">
       <% if @ratings.blank? %>
-          <h2>There are not reviews yet. Would you like to review this agent?</h2>
-          <%= link_to "Review agent", new_agent_rating_path(@agent), class: "btn btn-info" %>
+          <h3>There are no reviews yet. Would you like to review this agent?</h3>
+          <%= link_to "Review agent", new_agent_rating_path(@agent), class: "btn btn-primary" %>
       <% else %>
           <h4>
             <div class="star-rating" data-score="<%= average_rating(@agent) %>" style="color: #6730EC; padding-left: 10px">
