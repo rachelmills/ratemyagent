@@ -34,13 +34,3 @@
               class: "btn btn-xs btn-danger" %>
   <%= link_to "View all ratings for agent", agent_ratings_path(@rating.agent), class: "btn btn-xs btn-success" %>
 </div>
-
-<script>
-    $('.star-rating').raty({
-        path: '/assets/',
-        readOnly: true,
-        score: function () {
-            return $(this).attr('data-score');
-        }
-    });
-</script>
