@@ -1,14 +1,20 @@
-<div class="well well-lg center" id="home">
+<div class="container" id="home">
+  <div class="row" id="home">
+    <div class="cell cell-1">Content</div>
+  </div>
+  <div class="row" id="banner">
+    <div class="cell cell-2"><h3 align="center">
+      Find a good real estate rental agent.
+    </h3></div>
 
-  <p>Rate My Rental Agent is a simple website to enable
-    tenants to view and create ratings for rental agencies. The more
-    ratings entered the more helpful this website will be, so please feel
-    free to add ratings for agencies you may have used.</p>
-  <p>** Simply search for an agent using the box above. Then follow
-    the links to view previous ratings or add your own rating. **</p>
 
-  <% if !logged_in? %>
-      <%= link_to "Sign up now", signup_path, class: "btn btn-danger" %>
-      <%= link_to "Log in", login_path, class: "btn btn-info" %>
-  <% end %>
+  </div>
+  <div class="row" id="home">
+    <div class="cell cell-3">
+      <% if !logged_in? %>
+          <%= link_to "Sign up now", signup_path, class: "btn btn-danger" %>
+          <%= link_to "Log in", login_path, class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
 </div>

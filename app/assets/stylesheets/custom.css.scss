@@ -1,18 +1,71 @@
-$navbar-default-bg: #6730EC;
+$navbar-default-bg: #6C6488;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-//
-//#logo {
-//  float: left;
-//  font-size: 1em;
-//  color: #fff;
-//  text-transform: uppercase;
-//  letter-spacing: -1px;
-//  font-weight: bold;
-//  //background-image: asset-url('HouseLogo.png');
-//  background-size: 100%;
-//}
+
+html,body,.container {
+  height:100%;
+}
+
+.container {
+  display:table;
+  width: 100%;
+  margin-top: -30px;
+  padding: 5px 0 0 0;
+  box-sizing: border-box;
+}
+
+#footer.container {
+  max-height: 25%;
+  padding: 0;
+  background: #6C6488;
+}
+header {
+  background: green;
+  height: 50px;
+}
+
+.row#home {
+  height: 25%;
+  display: table-row;
+  opacity: 0.5;
+}
+
+.row#banner {
+  height: 50%;
+  display: table-row;
+  opacity: 0.5;
+}
+
+.row .cell {
+  display: table-cell;
+  float: none;
+}
+
+.cell-1 {
+  background: #6C6488;
+  width: 100%;
+}
+
+.cell-2 {
+  background: #6BBAA7;
+  width: 100%;
+}
+
+.cell-3 {
+  background: #6C6488;
+  width: 100%;
+}
+
+body {
+  background: asset-url('dusty.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 0% 15%;
+  background-color: #6C6488;
+}
 
 #logo:hover {
   color: #ffffff;
@@ -43,10 +96,8 @@ $navbar-default-bg: #6730EC;
 }
 
 .footer {
-  margin-top: 45px;
-  paddding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: #777;;
 }
 
 .footer a:hover {
@@ -99,6 +150,10 @@ $navbar-default-bg: #6730EC;
 .listing {
   list-style: none;
   padding-left: 0;
+}
+
+.navbar-default {
+ border: none;
 }
 
 .navbar-default li {
@@ -190,7 +245,9 @@ a.dropdown-toggle {
 .well {
   background-color: white;
   border-color: #6730EC;
+
 }
+
 .well#agents {
   padding-left: 40px;
   padding-right: 40px;
@@ -203,7 +260,10 @@ a.dropdown-toggle {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 150px;
   font-size: 18px;
+  background-color: inherit;
+  border-color: #D2F6FC;
 }
 
 .row#agent-list {
@@ -262,3 +322,8 @@ div.star_rating {
 //#7984EE
 //#6730EC
 
+//https://designschool.canva.com/blog/website-color-schemes/
+//#6BBAA7 aqua
+//#FBA100 sunshine
+//#6C6488 lavender
+//#B6A193 dusty rose
