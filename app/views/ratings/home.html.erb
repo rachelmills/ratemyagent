@@ -4,7 +4,7 @@
   </div>
   <div class="row" id="banner">
     <div class="cell cell-2">
-      <h1 align="center">Rate my Rental Agent</h1>
+      <div align="center"> <%= image_tag('LOGO_text_side.png') %> </div>
       <h1 align="center">
       Find a good real estate rental agent.
     </h1>
@@ -19,8 +19,8 @@
   <div class="row" id="bottom">
     <div class="cell cell-3">
       <% if !logged_in? %>
-          <%= link_to "Sign up now", signup_path, class: "btn btn-danger" %>
-          <%= link_to "Log in", login_path, class: "btn btn-info" %>
+          <%= link_to "Sign up now", signup_path, class: "btn btn-danger btn-lg" %>
+          <%= link_to "Log in", login_path, class: "btn btn-info btn-lg" %>
       <% end %>
     </div>
   </div>
