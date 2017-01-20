@@ -1,15 +1,22 @@
 <div class="container" id="home">
-  <div class="row" id="home">
+  <div class="row" id="top">
     <div class="cell cell-1">Content</div>
   </div>
   <div class="row" id="banner">
-    <div class="cell cell-2"><h3 align="center">
+    <div class="cell cell-2">
+      <h1 align="center">Rate my Rental Agent</h1>
+      <h1 align="center">
       Find a good real estate rental agent.
-    </h3></div>
-
-
+    </h1>
+      <h2 align="center">
+        Read reviews for estate agents
+      </h2>
+      <h2 align="center">
+        Write reviews for estate agents
+      </h2>
+    </div>
   </div>
-  <div class="row" id="home">
+  <div class="row" id="bottom">
     <div class="cell cell-3">
       <% if !logged_in? %>
           <%= link_to "Sign up now", signup_path, class: "btn btn-danger" %>

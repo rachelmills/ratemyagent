@@ -1,70 +1,75 @@
-$navbar-default-bg: #6C6488;
+$navbar-default-bg: #B6A193;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-html,body,.container {
-  height:100%;
+html, body {
+  height: 100%;
+  background-color: inherit;
 }
 
 .container {
-  display:table;
+  display: table;
+  height: 100%;
   width: 100%;
-  margin-top: -30px;
+  margin-top: -100px;
   padding: 5px 0 0 0;
   box-sizing: border-box;
+  background-color: inherit;
+}
+
+#home.container {
+  background-color: inherit;
 }
 
 #footer.container {
-  max-height: 25%;
+  max-height: 20%;
   padding: 0;
-  background: #6C6488;
-}
-header {
-  background: green;
-  height: 50px;
 }
 
-.row#home {
+.row#top {
   height: 25%;
   display: table-row;
-  opacity: 0.5;
 }
 
 .row#banner {
-  height: 50%;
+  height: 35%;
   display: table-row;
-  opacity: 0.5;
+  opacity: 0.8;
+  color: white;
+}
+
+.row#bottom {
+  height: 25%;
+  display: table-row;
 }
 
 .row .cell {
   display: table-cell;
+  border: none;
   float: none;
 }
 
 .cell-1 {
-  background: #6C6488;
   width: 100%;
 }
 
 .cell-2 {
   background: #6BBAA7;
   width: 100%;
+  opacity: 0.7;
 }
 
 .cell-3 {
-  background: #6C6488;
   width: 100%;
 }
 
-body {
-  background: asset-url('dusty.jpg') no-repeat center center;
+html {
+  background: asset-url('dusty.jpg') no-repeat fixed center center ;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: 0% 15%;
-  background-color: #6C6488;
 }
 
 #logo:hover {
@@ -93,11 +98,6 @@ body {
 .btn-xlarge {
   font-size: 1.7em;
   background-color: black;
-}
-
-.footer {
-  border-top: 1px solid #eaeaea;
-  color: #777;;
 }
 
 .footer a:hover {
@@ -153,7 +153,8 @@ body {
 }
 
 .navbar-default {
- border: none;
+  border: none;
+  background-color: inherit;
 }
 
 .navbar-default li {
@@ -301,13 +302,13 @@ div.star_rating {
 }
 
 .btn-danger {
-  background-color: #7984EE;
-  border-color: #6730EC;
+  background-color: #FBA100;
+  border-color: #FBA100;
 }
 
 .btn-info {
-  background-color: #A9D2FF;
-  border-color: #6730EC;
+  background-color: #6C6488;
+  border-color: #6C6488;
 }
 
 .btn-primary {
