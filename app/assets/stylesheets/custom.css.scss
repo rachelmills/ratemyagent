@@ -18,6 +18,42 @@ html, body {
   background-color: inherit;
 }
 
+.row#banner {
+  font-family: Tahoma;
+  font-size: 25px;
+  height: 35%;
+  display: table-row;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.row#banner ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row#banner li {
+  background-repeat: no-repeat;
+  background-position: 1em;
+  padding-left: 4em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.row#banner li.one {
+  background-image: asset-url('magnifying_glass2');
+}
+
+.row#banner li.two {
+  background-image: asset-url('book1.png');
+}
+
+.row#banner li.three {
+  background-image: asset-url('pen3.png');
+}
+
 #home.container {
   background-color: inherit;
 }
@@ -32,15 +68,14 @@ html, body {
   display: table-row;
 }
 
-.row#banner {
-  height: 35%;
-  display: table-row;
-  color: white;
-}
-
 .row#bottom {
   height: 25%;
   display: table-row;
+}
+
+.buttons {
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
 .row .cell {
@@ -56,7 +91,8 @@ html, body {
 .cell-2 {
   background: #6BBAA7;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.7;
+  padding-top: 10px;
 }
 
 .cell-3 {
@@ -64,7 +100,7 @@ html, body {
 }
 
 html {
-  background: asset-url('dusty.jpg') no-repeat fixed center center ;
+  background: asset-url('dusty.jpg') no-repeat fixed center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
