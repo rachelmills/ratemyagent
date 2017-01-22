@@ -1,57 +1,63 @@
-<h1 align="center">Listing all agents</h1>
 <div align="center">
   <%= will_paginate renderer: BootstrapPagination::Rails %>
 </div>
-<% @agents.each do |agent| %>
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div class="well" id="agents">
-          <div class="row">
-            <div class="pull-left">
+<div class="well" id="agents">
+  <% @agents.each do |agent| %>
+      <div class="row">
+        <div class="row" id="agent">
+          <div class="col-sm-4">
+            <div class="row">
               <div class="agent-name">
                 <%= link_to agent.name, agent_path(agent) %>
               </div>
-              <div class="agent-suburb">
-                <%= agent.suburb %>
-              </div>
-              <div class="rating">
-                <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6730EC;">
-                  <%= pluralize(number_of_ratings(agent), "review") %>
-                </div>
-              </div>
             </div>
-            <div class="pull-right">
-              <div class="agent-buttons">
-                <div class="row">
-                  <% if logged_in? %>
-                      <div class="row">
-                        <div class="col-xs-3">
-                          <%= link_to " Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-primary" %>
-                        </div>
-                      </div>
-                      <% if current_user.admin? %>
-                          <div class="row">
-                            <div class="col-xs-3">
-                              <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-primary" %>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-xs-3">
-                              <%= link_to "Delete this agent", agent_path(agent), method: :delete,
-                                          data: {confirm: "Are you sure you want to delete the selected agent"},
-                                          class: "btn btn-xs btn-danger" %>
-                            </div>
-                          </div>
-                      <% end %>
-                  <% end %>
-                </div>
+            <div class="row">
+              <div class="agent-suburb">
+                <%= agent.suburb %>, <%= agent.state %>
               </div>
             </div>
           </div>
+          <div class="col-sm-4 col-sm-offset-1">
+            <div class="rating">
+              <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6BBAA7;">
+                <%= pluralize(number_of_ratings(agent), "review") %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="agent-buttons">
+              <% if logged_in? %>
+                  <div class="row">
+                    <div class="col-sm-2 col-sm-offset-4">
+                      <%= link_to " Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-primary" %>
+                    </div>
+                  </div>
+                  <% if current_user.admin? %>
+                      <div class="row">
+                        <div class="col-sm-2 col-sm-offset-4">
+                          <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-info" %>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-2 col-sm-offset-4">
+                          <%= link_to "Delete this agent", agent_path(agent), method: :delete,
+                                      data: { confirm: "Are you sure you want to delete the selected agent" },
+                                      class: "btn btn-xs btn-danger" %>
+                        </div>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+
+          </div>
         </div>
+        <% unless agent == @agents.last %>
+            <hr>
+        <% end %>
+
       </div>
-    </div>
-<% end %>
+  <% end %>
+</div>
 <div align="center">
   <%= will_paginate renderer: BootstrapPagination::Rails %>
 </div>

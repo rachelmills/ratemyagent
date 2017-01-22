@@ -158,7 +158,7 @@ html {
 }
 
 .agent-name a {
-  color: #6730EC;
+  color: white;
 }
 
 .agent-suburb {
@@ -189,6 +189,8 @@ html {
 .navbar-default {
   border: none;
   background-color: inherit;
+  font-weight: 200;
+  text-transform: uppercase;
 }
 
 .navbar-default li {
@@ -278,17 +280,30 @@ a.dropdown-toggle {
 }
 
 .well {
-  background-color: white;
-  border-color: #6730EC;
-
+  background-color: inherit;
+  border-color: #6BBAA7;
+  border-style: none;
+  -webkit-box-shadow: none;
 }
 
 .well#agents {
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 40px;
   padding-right: 40px;
   margin-bottom: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  color: white;
+  font-weight: 200;
+  max-width: 55%;
+
+}
+
+.well#agents hr {
+  border-top-color: #6BBAA7;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .well#home {
@@ -301,6 +316,11 @@ a.dropdown-toggle {
   border-color: #D2F6FC;
 }
 
+.row#agent {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .row#agent-list {
   margin-left: 10px;
 }
@@ -311,6 +331,11 @@ a.dropdown-toggle {
 }
 
 .agent-buttons .btn.btn-xs.btn-primary {
+  margin: 3px;
+  width: 103px;
+}
+
+.agent-buttons .btn.btn-xs.btn-info {
   margin: 3px;
   width: 103px;
 }
@@ -336,8 +361,8 @@ div.star_rating {
 }
 
 .btn-danger {
-  background-color: #FBA100;
-  border-color: #FBA100;
+  background-color: #D9534F;
+  border-color: #D9534F;
 }
 
 .btn-info {
@@ -346,8 +371,43 @@ div.star_rating {
 }
 
 .btn-primary {
-  background-color: #7984EE;
-  border-color: #6730EC;
+  background-color: #FBA100;
+  border-color: #FBA100;
+}
+
+.btn-primary:hover {
+  background-color: #6BBAA7;
+  border-color: #6BBAA7;
+}
+
+.btn-info:hover {
+  background-color: #6BBAA7;
+  border-color: #6BBAA7;
+}
+
+.btn-danger:hover {
+  background-color: #6BBAA7;
+  border-color: #6BBAA7;
+}
+
+.alert-success {
+  background-color: inherit;
+  border-color: #6BBAA7;
+  color: white;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile {
+  color: white;
+  font-weight: 200;
+}
+
+.profile hr {
+  border-top-color: #6BBAA7;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 //Colour palette

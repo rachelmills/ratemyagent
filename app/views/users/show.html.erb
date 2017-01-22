@@ -1,22 +1,26 @@
-<div class="row">
-  <div class="well col-xs-8 col-xs-offset-2">
-    <div class="row">
-      <div class="col-xs-2 col-xs-offset-1"><label>Username:</label></div>
-      <div class="col-xs-3"><%= @user.username %></div>
-    </div>
-    <div class="row">
-      <div class="col-xs-2 col-xs-offset-1"><label>Email:</label></div>
-      <div class="col-xs-3"><%= @user.email %></div>
+<div class="profile">
+  <div class="row">
+    <div class="well col-xs-8 col-xs-offset-2">
+      <div class="row">
+        <div class="col-xs-2 col-xs-offset-1"><label>Username:</label></div>
+        <div class="col-xs-3"><%= @user.username %></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2 col-xs-offset-1"><label>Email:</label></div>
+        <div class="col-xs-3"><%= @user.email %></div>
+      </div>
     </div>
   </div>
+  <% if @user_ratings.count > 0 %>
+      <h4 align="center">My ratings</h4>
+      <div class="center">
+        <%= will_paginate @user_ratings, renderer: BootstrapPagination::Rails %>
+      </div>
+      <div class="well col-xs-8 col-xs-offset-2">
+        <%= render 'ratings/rating', obj: @user_ratings %>
+        <div class="center">
+          <%= will_paginate @user_ratings, renderer: BootstrapPagination::Rails %>
+        </div>
+      </div>
+  <% end %>
 </div>
-<% if @user_ratings.count > 0 %>
-    <h4 align="center">My ratings</h4>
-    <div class="center">
-      <%= will_paginate @user_ratings, renderer: BootstrapPagination::Rails %>
-    </div>
-    <%= render 'ratings/rating', obj: @user_ratings %>
-    <div class="center">
-      <%= will_paginate @user_ratings, renderer: BootstrapPagination::Rails %>
-    </div>
-<% end %>
