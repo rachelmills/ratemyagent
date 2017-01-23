@@ -207,6 +207,15 @@ html {
   line-height: 107px;
 }
 
+.dropdown-menu {
+  background-color: inherit;
+}
+
+.dropdown-menu > li > a {
+  color: #6C6488;
+  border-bottom: 1px;
+}
+
 #dropdown {
   line-height: 10px;
 }
@@ -228,20 +237,43 @@ a.dropdown-toggle {
   color: #7984EE;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-  color: #7984EE;
-}
-
-.navbar-nav > li > a:focus {
-  color: white;
-}
-
-.navbar-nav > .open > a:focus {
-  color: white;
-}
-
 .navbar-default .navbar-nav > li > a {
   color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #6C6488;
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+  color: #6C6488;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  color: white;
+  background-color: inherit;
+  box-shadow: 0 0 white, inset 0px -1px
+}
+
+.navbar-default .navbar-nav > .active > a:hover {
+  background-color: inherit;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #6C6488;
+  background-color: inherit;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  color: white;
+  background-color: inherit;
+}
+
+.dropdown-menu .divider {
+  margin: 3px 8px;
+  background-color: #B6A193;
 }
 
 .btn-default {
@@ -371,13 +403,13 @@ div.star_rating {
 }
 
 .btn-primary {
-  background-color: #FBA100;
-  border-color: #FBA100;
+  background-color: #6BBAA7;
+  border-color: #6BBAA7;
 }
 
 .btn-primary:hover {
-  background-color: #6BBAA7;
-  border-color: #6BBAA7;
+  background-color: #FBA100;
+  border-color: #FBA100;
 }
 
 .btn-info:hover {
