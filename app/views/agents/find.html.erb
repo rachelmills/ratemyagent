@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div align="center" class="search">
+      <%= form_tag agents_path, method: :get do %>
+          <%= text_field_tag :search, params[:search], autofocus: true, class: 'search' %>
+          <%= submit_tag "Search", name: nil, class: 'search_button' %>
+      <% end %>
+    </div>
+  </div>
+</div>

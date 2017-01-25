@@ -449,6 +449,32 @@ div.star_rating {
   margin-top: 5%;
 }
 
+.search input {
+  font-size: large;
+}
+
+.search input:focus, input[type]:focus {
+  border: 1px solid #6C6488;
+  outline: #6C6488 solid 1px;
+}
+
+.search_button {
+  background-color: #6BBAA7;
+  color: white;
+  border: 1px solid #6BBAA7;
+}
+
+.search_button:focus, .search_button:hover {
+  background-color: #FBA100;
+  border: 1px solid #FBA100;
+}
+
+.search-term {
+  font-size: 20px;
+  color: white;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
 //Colour palette
 //#http://www.colorhunt.co/hot
 //#D2F6FC
