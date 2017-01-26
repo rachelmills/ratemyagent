@@ -13,10 +13,6 @@ class Agent < ActiveRecord::Base
   end
 
   def self.search(search, page)
-    if search
-      where('lower(name) LIKE ?', "%#{search.downcase}%").paginate(page: page, per_page: 5).order('id DESC')
-    else
-      paginate(page: page, per_page: 5).order('id DESC')
-    end
+    where('lower(name) LIKE ?', "%#{search.downcase}%").paginate(page: page, per_page: 5).order('id DESC')
   end
 end

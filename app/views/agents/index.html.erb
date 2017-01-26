@@ -1,7 +1,7 @@
 <div align="center">
   <%= will_paginate renderer: BootstrapPagination::Rails %>
 </div>
-<% if "#{params[:search]}" %>
+<% if @params %>
     <p align="center" class="search-term">You searched for agents with '<%= "#{params[:search]}" %>' in the name</p>
 <% end %>
 <% if @agents.size == 0 %>

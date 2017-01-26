@@ -4,7 +4,13 @@ class AgentsController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
+    @params = false
+    if params[:search]
+      @params = true
       @agents = Agent.search(params[:search], params[:page])
+    else
+      @agents = Agent.paginate(page: params[:page], per_page: 5)
+    end
   end
 
   def new
