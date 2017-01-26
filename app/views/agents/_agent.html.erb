@@ -30,6 +30,12 @@
                           <%= link_to " Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-primary" %>
                         </div>
                       </div>
+                  <% else %>
+                      <div class="row">
+                        <div class="col-sm-2 col-sm-offset-4">
+                          <%= link_to " View your rating", rating_path(@rating), class: "btn btn-xs btn-primary" %>
+                        </div>
+                      </div>
                   <% end %>
                   <% if current_user.admin? %>
                       <div class="row">

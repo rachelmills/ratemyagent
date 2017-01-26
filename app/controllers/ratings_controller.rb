@@ -7,7 +7,7 @@ class RatingsController < ApplicationController
 
   def new
     @agent = Agent.find(params[:agent_id])
-    if Rating.rating_for_agent_and_user?(@agent, current_user)
+    if Rating.get_rating_for_agent_and_user(@agent, current_user)
       flash[:warning] = 'You have already rated this agent'
       redirect_to agent_path(@agent)
     else
@@ -18,10 +18,14 @@ class RatingsController < ApplicationController
   def create
     # debugger
     @agent = Agent.find(params[:agent_id])
-    @rating = Rating.new(rating_params)
-    @rating.user = current_user
-    @rating.agent = @agent
-
+    if Rating.get_rating_for_agent_and_user(@agent, current_user)
+      flash[:warning] = 'You have already rated this agent'
+      redirect_to agent_path(@agent)
+    else
+      @rating = Rating.new(rating_params)
+      @rating.user = current_user
+      @rating.agent = @agent
+    end
     if @rating.save
       flash[:success] = 'Rating was successfully created'
       redirect_to rating_path(@rating)

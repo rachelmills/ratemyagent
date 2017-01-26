@@ -20,7 +20,8 @@ module ApplicationHelper
   end
 
   def can_rate_this_agent?(agent, user)
-    if Rating.rating_for_agent_and_user?(agent, user)
+    @rating = Rating.get_rating_for_agent_and_user(agent, user)
+    if @rating
       false
     else
       true

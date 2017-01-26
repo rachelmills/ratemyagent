@@ -12,12 +12,7 @@ class Rating < ActiveRecord::Base
   validates :agent_id, presence: true
   validates :agent, :presence => true, :uniqueness => { :scope => :user }
 
-  def self.rating_for_agent_and_user?(agent, user)
-    rating = Rating.find_by(agent: agent, user: user)
-    if rating
-      true
-    else
-      false
-    end
+  def self.get_rating_for_agent_and_user(agent, user)
+    Rating.find_by(agent: agent, user: user)
   end
 end
