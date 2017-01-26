@@ -18,4 +18,12 @@ module ApplicationHelper
   def sort_suburbs(suburb_array)
     suburb_array.sort
   end
+
+  def can_rate_this_agent?(agent, user)
+    if Rating.rating_for_agent_and_user?(agent, user)
+      false
+    else
+      true
+    end
+  end
 end

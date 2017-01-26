@@ -3,12 +3,16 @@ class RatingsController < ApplicationController
   before_action :require_user, only: [:create]
 
   def home
-    # redirect_to agents_path if logged_in?
   end
 
   def new
     @agent = Agent.find(params[:agent_id])
-    @rating = Rating.new
+    if Rating.rating_for_agent_and_user?(@agent, current_user)
+      flash[:warning] = 'You have already rated this agent'
+      redirect_to agent_path(@agent)
+    else
+      @rating = Rating.new
+    end
   end
 
   def create
