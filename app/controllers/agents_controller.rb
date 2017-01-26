@@ -1,6 +1,6 @@
 class AgentsController < ApplicationController
   before_action :set_agent, only: [:edit, :update, :show, :destroy]
-  before_action :require_user, except: [:index, :show]
+  before_action :require_user, except: [:index, :show, :find]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index

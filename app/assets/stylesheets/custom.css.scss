@@ -45,6 +45,11 @@ html, body {
   background-image: asset-url('magnifying_glass2');
 }
 
+.row#banner a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .row#banner li.two {
   background-image: asset-url('book1.png');
 }
@@ -292,23 +297,33 @@ a.dropdown-toggle {
 }
 
 .form-controler::-webkit-input-placeholder {
-  color: white;
+  color: lightgrey;
+  font-weight: 200;
+  font-size: 14px;
 }
 
 *::-webkit-input-placeholder {
-  color: white;
+  color: lightgrey;
+  font-weight: 200;
+  font-size: 14px;
 }
 
 .form-control::-moz-placeholder {
-  color: #7984EE;
+  color: lightgrey;
+  font-weight: 200;
+  font-size: 14px;
 }
 
 *::-moz-placeholder {
-  color: #7984EE;
+  color: lightgrey;
+  font-weight: 200;
+  font-size: 14px;
 }
 
 .form-control:-ms-input-placeholder {
-  color: white;
+  color: lightgrey;
+  font-weight: 200;
+  font-size: 14px;
 }
 
 .well {
@@ -451,6 +466,7 @@ div.star_rating {
 
 .search input {
   font-size: large;
+  padding: 10px;
 }
 
 .search input:focus, input[type]:focus {
