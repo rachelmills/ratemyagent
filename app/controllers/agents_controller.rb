@@ -5,13 +5,9 @@ class AgentsController < ApplicationController
 
   def index
     @params = false
-    if !params[:by_name].blank?
+    if params[:by_name] || params[:by_suburb] || params[:by_state]
       @params = true
-      @agents = Agent.search_by_name(params[:by_name], params[:page])
-      puts "#{@agents.first.name}"
-    elsif params[:by_suburb]
-      @params = true
-      @agents = Agent.search_by_suburb(params[:by_suburb], params[:page])
+      @agents = Agent.search(params[:by_name], params[:by_suburb], params[:by_state], params[:page])
     else
       @agents = Agent.paginate(page: params[:page], per_page: 5)
     end

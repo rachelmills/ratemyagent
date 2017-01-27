@@ -10,12 +10,18 @@ class Agent < ActiveRecord::Base
     name.upcase!
   end
 
-  def self.search_by_name(term, page)
-    where('lower(name) LIKE ?', "%#{term.downcase}%").paginate(page: page, per_page: 5).order('id DESC')
-  end
-
-  def self.search_by_suburb(term, page)
-    where('lower(suburb) LIKE ?', "%#{term.downcase}%").paginate(page: page, per_page: 5).order('id DESC')
+  def self.search(name, suburb, state, page)
+    if name
+      name = name.downcase
+    end
+    if suburb
+      suburb = suburb.upcase
+    end
+    if state
+      state = state.upcase
+    end
+    where('lower(name) LIKE ? AND upper(suburb) LIKE ? AND upper(state) LIKE ?',
+          "%#{name}%", "%#{suburb}%", "%#{state}%").paginate(page: page, per_page: 5).order('id DESC')
   end
 
 end

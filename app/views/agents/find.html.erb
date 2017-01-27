@@ -2,8 +2,9 @@
   <div class="col-sm-12">
     <div align="center" class="search">
       <%= form_tag agents_path, method: :get do %>
-          <%= text_field_tag :by_name, params[:by_name], autofocus: true, placeholder: "enter agent name" %>
-          <%= text_field_tag :by_suburb, params[:by_suburb], autofocus: true, placeholder: "enter suburb" %>
+          <%= text_field_tag :by_name, params[:by_name], autofocus: true, placeholder: 'agent name' %>
+          <%= text_field_tag :by_suburb, params[:by_suburb], autofocus: true, placeholder: 'suburb' %>
+          <%= text_field_tag :by_state, params[:by_state], autofocus: true, placeholder: 'three letter state abbreviation' %>
           <%= submit_tag "Search", name: nil, class: 'search_button' %>
       <% end %>
     </div>
