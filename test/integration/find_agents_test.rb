@@ -44,8 +44,8 @@ class FindAgentsTest < ActionDispatch::IntegrationTest
     assert_template 'agents/find'
     get agents_path, params: { by_name: 'Agent two', by_state: 'QLD'}
     assert_template 'agents/index'
-    assert_match 'QLD', response.body
-    refute_match 'NSW', response.body
+    assert_match ', QLD', response.body
+    refute_match ', NSW', response.body
   end
 
   test 'does not return agents that do not meet criteria' do
@@ -54,8 +54,8 @@ class FindAgentsTest < ActionDispatch::IntegrationTest
     assert_template 'agents/find'
     get agents_path, params: { by_name: 'Agent two', by_state: 'NSW'}
     assert_template 'agents/index'
-    refute_match 'QLD', response.body
-    refute_match 'NSW', response.body
+    refute_match ', QLD', response.body
+    refute_match ', NSW', response.body
   end
 
 end
