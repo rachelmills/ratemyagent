@@ -22,4 +22,9 @@ class AgentsControllerTest < ActionController::TestCase
     get(:show, params: { 'id': @agent.id })
     assert_response :success
   end
+
+  test 'should find by name' do
+    get(:find, params: { by_name: 'best'})
+    assert_response :success
+  end
 end

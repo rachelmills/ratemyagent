@@ -2,7 +2,7 @@
   <%= will_paginate renderer: BootstrapPagination::Rails %>
 </div>
 <% if @params %>
-    <p align="center" class="search-term">You searched for agents with '<%= "#{params[:search]}" %>' in the name</p>
+    <p align="center" class="search-term">You searched for agents with '<%= "#{params[:by_name]}" %>' in the name</p>
 <% end %>
 <% if @agents.size == 0 %>
     <p align="center" class="search-term">No agents were found</p>

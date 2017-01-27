@@ -57,9 +57,4 @@ class AgentTest < ActiveSupport::TestCase
     new_agent = Agent.new(name: 'Test Agent', suburb: 'Nundah', user_id: @user.id, state: 'QLD')
     assert_not new_agent.valid?
   end
-
-  test 'agent name should be saved in uppercase' do
-    @agent.save
-    assert @agent.name == 'TEST AGENT'
-  end
 end
