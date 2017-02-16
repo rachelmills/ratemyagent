@@ -13,3 +13,9 @@ function filterSuburbsList() {
         }
     });
 }
+
+$(function () {
+    $('#by_name').autocomplete({
+        source: $('#by_name').data('autocomplete-source')
+    });
+});
