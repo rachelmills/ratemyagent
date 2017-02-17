@@ -22,7 +22,7 @@ $(function () {
         source: $('#by_suburb').data('autocomplete-suburb')
     });
     $('#by_state').autocomplete({
-        source: $('#by_state').data('autocomplete-state``')
+        source: $('#by_state').data('autocomplete-state')
     });
 
 });
