@@ -16,6 +16,13 @@ function filterSuburbsList() {
 
 $(function () {
     $('#by_name').autocomplete({
-        source: $('#by_name').data('autocomplete-source')
+        source: $('#by_name').data('autocomplete-name')
     });
+    $('#by_suburb').autocomplete({
+        source: $('#by_suburb').data('autocomplete-suburb')
+    });
+    $('#by_state').autocomplete({
+        source: $('#by_state').data('autocomplete-state``')
+    });
+
 });

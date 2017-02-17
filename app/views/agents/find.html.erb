@@ -2,9 +2,12 @@
   <div class="col-sm-12">
     <div align="center" class="search">
       <%= form_tag agents_path, method: :get do %>
-          <%= text_field_tag :by_name, params[:by_name], autofocus: true, placeholder: 'agent name' %>
-          <%= text_field_tag :by_suburb, params[:by_suburb], autofocus: true, placeholder: 'suburb' %>
-          <%= text_field_tag :by_state, params[:by_state], autofocus: true, placeholder: 'three letter state abbreviation' %>
+          <%= text_field_tag :by_name, params[:by_name], autofocus: true, placeholder: 'agent name',
+                             data: { autocomplete_name: Agent.order(:name).map(&:name) } %>
+          <%= text_field_tag :by_suburb, params[:by_suburb], autofocus: true, placeholder: 'suburb',
+                             data: { autocomplete_suburb: Agent.order(:suburb).map(&:suburb) } %>
+          <%= text_field_tag :by_state, params[:by_state], autofocus: true, placeholder: 'three letter state abbreviation',
+                             data: { autocomplete_state: Agent.order(:state).map(&:state) } %>
           <%= submit_tag "Search", name: nil, class: 'search_button' %>
       <% end %>
     </div>

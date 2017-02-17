@@ -24,26 +24,11 @@
 <% if @agents.size == 0 %>
     <p align="center" class="search-term">No agents were found</p>
 <% else %>
-    <div class="row">
-      <div align="center" class="search">
-        <%= form_tag agents_path, method: :get do %>
-            <div class="col-sm-2">
-              <%= text_field_tag :by_name, params[:by_name], autofocus: true, placeholder: 'agent name',
-                                 data: { autocomplete_source: Agent.order(:name).map(&:name) } %>
-            </div>
-            <div class="col-sm-1">
-              <%= submit_tag "Search", name: nil, class: 'search_button' %>
-            </div>
-        <% end %>
-      </div>
-      <div class="col-sm-9">
-        <div align="center">
-          <%= will_paginate renderer: BootstrapPagination::Rails %>
-        </div>
-        <%= render 'agent', obj: @agents %>
-        <div align="center">
-          <%= will_paginate renderer: BootstrapPagination::Rails %>
-        </div>
-      </div>
+    <div align="center">
+      <%= will_paginate renderer: BootstrapPagination::Rails %>
+    </div>
+    <%= render 'agent', obj: @agents %>
+    <div align="center">
+      <%= will_paginate renderer: BootstrapPagination::Rails %>
     </div>
 <% end %>
