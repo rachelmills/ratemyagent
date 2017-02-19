@@ -8,10 +8,15 @@ html, body {
   background-color: inherit;
 }
 
-.container {
+.navbar {
+  margin-bottom: 0;
+}
+
+#main.container {
   display: table;
   height: 100%;
   width: 100%;
+
   margin-top: -140px;
   padding: 5px 0 0 0;
   box-sizing: border-box;
@@ -490,6 +495,40 @@ div.star_rating {
   color: white;
   font-weight: 200;
   margin-bottom: 30px;
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover {
+  background-color: inherit;
+  border-color: #6BBAA7;
+  color: #6C6488;
+  font-weight: bold;
+}
+
+.pagination > .active > span,  .pagination > .active > span:hover, .pagination > li > a, .pagination > li > a:hover {
+  background-color: inherit;
+  border-color: #6BBAA7;
+  font-weight: bold;
+  color: #6C6488;
+}
+
+.pagination > li > a:hover {
+  color: white;
+}
+
+.pagination > .active > span, .pagination > .active > span:hover {
+  color: white;
+  font-weight: bold;
+  background-color: inherit;
+  border-color: #6BBAA7;
+}
+
+.pagination > li:first-child > span {
+  background-color: inherit;
+  border-color: #6BBAA7;
+}
+
+.pagination {
+  margin-top: 10px;
 }
 //Colour palette
 //#http://www.colorhunt.co/hot
