@@ -12,15 +12,35 @@ html, body {
   margin-bottom: 0;
 }
 
-#main.container {
+.container {
   display: table;
-  height: 100%;
+  height: 75%;
   width: 100%;
-
   margin-top: -140px;
   padding: 5px 0 0 0;
   box-sizing: border-box;
   background-color: inherit;
+}
+
+#navbar.container {
+  height: 110px;
+  margin-top: 0;
+}
+
+#new.container {
+  height: 100%;
+  margin-top: 0;
+}
+
+#home.container {
+  height: 100%;
+  margin-top: 0;
+}
+
+#footer.container {
+  max-height: 10%;
+  padding: 0;
+  margin-top: 0;
 }
 
 .row#banner {
@@ -61,15 +81,6 @@ html, body {
 
 .row#banner li.three {
   background-image: asset-url('pen3.png');
-}
-
-#home.container {
-  background-color: inherit;
-}
-
-#footer.container {
-  max-height: 10%;
-  padding: 0;
 }
 
 .row#top {
@@ -114,6 +125,10 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+footer {
+  height: 100%;
 }
 
 #logo:hover {
@@ -201,10 +216,15 @@ html {
   background-color: inherit;
   font-weight: 200;
   text-transform: uppercase;
+  height: 13%;
 }
 
 .navbar-default li {
   line-height: 107px;
+}
+
+li#dropdown {
+  line-height: 10px;
 }
 
 .navbar-default li a {
@@ -224,10 +244,6 @@ html {
 .dropdown-menu > li > a {
   color: #6C6488;
   border-bottom: 1px;
-}
-
-#dropdown {
-  line-height: 10px;
 }
 
 li.a.menu-items {

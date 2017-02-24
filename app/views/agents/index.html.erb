@@ -1,34 +1,36 @@
-<% if @params %>
-    <div class="well" id="agents">
-      <div class="row">
-        <div class="col-sm-6">
-          <p align="center" class="search-term">You searched for:</p>
-        </div>
-        <div class="col-sm-6">
-          <ul>
-            <% if !params[:by_name].blank? %>
-                <li>Agent name '<%= "#{params[:by_name]}" %>'</li>
-            <% end %>
-            <% if !params[:by_suburb].blank? %>
-                <li>Suburb '<%= "#{params[:by_suburb]}" %>'</li>
-            <% end %>
-            <% if !params[:by_state].blank? %>
-                <li>State '<%= "#{params[:by_state]}" %>'</li>
-            <% end %>
-          </ul>
+<div class="container" id="new">
+  <% if @params %>
+      <div class="well" id="agents">
+        <div class="row">
+          <div class="col-sm-6">
+            <p align="center" class="search-term">You searched for:</p>
+          </div>
+          <div class="col-sm-6">
+            <ul>
+              <% if !params[:by_name].blank? %>
+                  <li>Agent name '<%= "#{params[:by_name]}" %>'</li>
+              <% end %>
+              <% if !params[:by_suburb].blank? %>
+                  <li>Suburb '<%= "#{params[:by_suburb]}" %>'</li>
+              <% end %>
+              <% if !params[:by_state].blank? %>
+                  <li>State '<%= "#{params[:by_state]}" %>'</li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <hr>
-<% end %>
-<% if @agents.size == 0 %>
-    <p align="center" class="search-term">No agents were found</p>
-<% else %>
-    <div align="center">
-      <%= will_paginate renderer: BootstrapPagination::Rails %>
-    </div>
-    <%= render 'agent', obj: @agents %>
-    <div align="center">
-      <%= will_paginate renderer: BootstrapPagination::Rails %>
-    </div>
-<% end %>
+      <hr>
+  <% end %>
+  <% if @agents.size == 0 %>
+      <p align="center" class="search-term">No agents were found</p>
+  <% else %>
+      <div align="center">
+        <%= will_paginate renderer: BootstrapPagination::Rails %>
+      </div>
+      <%= render 'agent', obj: @agents %>
+      <div align="center">
+        <%= will_paginate renderer: BootstrapPagination::Rails %>
+      </div>
+  <% end %>
+</div>
