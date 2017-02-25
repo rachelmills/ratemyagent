@@ -364,14 +364,14 @@ a.dropdown-toggle {
   padding-bottom: 4px;
   color: white;
   font-weight: 200;
-  max-width: 55%;
+  max-width: 75%;
 
 }
 
 .well#agents hr {
   border-top-color: #6BBAA7;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .well#home {
@@ -414,7 +414,7 @@ a.dropdown-toggle {
 }
 
 .agent-buttons {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 div.star_rating {
@@ -515,16 +515,16 @@ div.star_rating {
 
 .pagination > .disabled > span, .pagination > .disabled > span:hover {
   background-color: inherit;
-  border-color: #6BBAA7;
-  color: #6C6488;
+  color: #6BBAA7;
   font-weight: bold;
+  border: none;
 }
 
 .pagination > .active > span,  .pagination > .active > span:hover, .pagination > li > a, .pagination > li > a:hover {
   background-color: inherit;
-  border-color: #6BBAA7;
+  border: none;
   font-weight: bold;
-  color: #6C6488;
+  color: #6BBAA7;
 }
 
 .pagination > li > a:hover {
@@ -545,6 +545,7 @@ div.star_rating {
 
 .pagination {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 //Colour palette
 //#http://www.colorhunt.co/hot
