@@ -4,13 +4,13 @@
       <div class="row" id="agent">
         <div class="col-sm-12">
           <div class="row">
-            <div class="col-sm-3 agent-name">
+            <div class="<%= logged_in? ? "col-sm-3 agent-name" : "col-sm-4 agent-name" %>">
               <%= link_to agent.name, agent_path(agent) %>
             </div>
-            <div class="col-sm-3 agent-suburb">
+            <div class="<%= logged_in? ? "col-sm-3 agent-suburb" : "col-sm-4 agent-suburb" %>">
               <%= agent.suburb %>, <%= agent.state %>
             </div>
-            <div class="col-sm-3">
+            <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
               <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6BBAA7;">
                 <%= pluralize(number_of_ratings(agent), "review") %>
               </div>
