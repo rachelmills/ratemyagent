@@ -22,17 +22,27 @@
       </div>
       <hr>
   <% end %>
-  <% if @agents.size == 0 %>
-      <p align="center" class="search-term">No agents were found</p>
-  <% else %>
-      <div align="center">
-        <%= will_paginate renderer: BootstrapPagination::Rails %>
-      </div>
-      <div align="center">
-        <%= render 'agent', obj: @agents %>
-      </div>
-      <div align="center">
-        <%= will_paginate renderer: BootstrapPagination::Rails %>
-      </div>
-  <% end %>
+  <div class="well" id="agents">
+    <% if @agents.size == 0 %>
+        <p align="center" class="search-term">No agents were found</p>
+    <% else %>
+        <div align="center" style="padding-top: 0">
+          <%= will_paginate renderer: BootstrapPagination::Rails %>
+        </div>
+        <div align="center">
+          <div class="row" id="agent">
+            <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
+              <label class="table-header"><%= link_to "Agent Name", :sort => "name" %></label></div>
+            <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
+              <label class="table-header"><%= link_to "Suburb", :sort => "suburb" %></label></div>
+            <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
+              <label class="table-header"><%= link_to "Reviews"%></label></div>
+            <%= render 'agent', obj: @agents %>
+          </div>
+        </div>
+        <div align="center">
+          <%= will_paginate renderer: BootstrapPagination::Rails %>
+        </div>
+    <% end %>
+  </div>
 </div>

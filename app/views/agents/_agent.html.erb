@@ -1,46 +1,43 @@
-<div class="well" id="agents">
-  <% obj.each do |agent| %>
-
-      <div class="row" id="agent">
-        <div class="col-sm-12">
-          <div class="row">
-            <div class="<%= logged_in? ? "col-sm-3 agent-name" : "col-sm-4 agent-name" %>">
-              <%= link_to agent.name, agent_path(agent) %>
+<% obj.each do |agent| %>
+    <div class="row" id="agent">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="<%= logged_in? ? "col-sm-3 agent-name" : "col-sm-4 agent-name" %>">
+            <%= link_to agent.name, agent_path(agent) %>
+          </div>
+          <div class="<%= logged_in? ? "col-sm-3 agent-suburb" : "col-sm-4 agent-suburb" %>">
+            <%= agent.suburb %>, <%= agent.state %>
+          </div>
+          <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
+            <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6BBAA7;">
+              <%= pluralize(number_of_ratings(agent), "review") %>
             </div>
-            <div class="<%= logged_in? ? "col-sm-3 agent-suburb" : "col-sm-4 agent-suburb" %>">
-              <%= agent.suburb %>, <%= agent.state %>
-            </div>
-            <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
-              <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6BBAA7;">
-                <%= pluralize(number_of_ratings(agent), "review") %>
-              </div>
-            </div>
-            <% if logged_in? %>
-                <div class="col-sm-3 agent-buttons">
-                  <div class="<%= current_user.admin? ? "col-sm-1" : "col-sm-2 col-sm-offset-3" %>">
-                    <% if can_rate_this_agent?(agent, current_user) %>
-                        <%= link_to " Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-primary" %>
-                    <% else %>
-                        <%= link_to " View your rating", rating_path(@rating), class: "btn btn-xs btn-primary" %>
-                    <% end %>
-                  </div>
-                  <% if current_user.admin? %>
-                      <div class="col-sm-2">
-                        <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-info" %>
-                      </div>
-                      <div class="col-sm-1">
-                        <%= link_to "Delete this agent", agent_path(agent), method: :delete,
-                                    data: { confirm: "Are you sure you want to delete the selected agent" },
-                                    class: "btn btn-xs btn-danger" %>
-                      </div>
+          </div>
+          <% if logged_in? %>
+              <div class="col-sm-3 agent-buttons">
+                <div class="<%= current_user.admin? ? "col-sm-1" : "col-sm-2 col-sm-offset-3" %>">
+                  <% if can_rate_this_agent?(agent, current_user) %>
+                      <%= link_to " Rate this agent", new_agent_rating_path(agent), class: "btn btn-xs btn-primary" %>
+                  <% else %>
+                      <%= link_to " View your rating", rating_path(@rating), class: "btn btn-xs btn-primary" %>
                   <% end %>
                 </div>
-            <% end %>
-          </div>
+                <% if current_user.admin? %>
+                    <div class="col-sm-2">
+                      <%= link_to "Edit this agent", edit_agent_path(agent), class: "btn btn-xs btn-info" %>
+                    </div>
+                    <div class="col-sm-1">
+                      <%= link_to "Delete this agent", agent_path(agent), method: :delete,
+                                  data: { confirm: "Are you sure you want to delete the selected agent" },
+                                  class: "btn btn-xs btn-danger" %>
+                    </div>
+                <% end %>
+              </div>
+          <% end %>
         </div>
       </div>
-      <% unless agent == @agents.last %>
-          <hr>
-      <% end %>
-  <% end %>
-</div>
+    </div>
+    <% unless agent == @agents.last %>
+        <hr>
+    <% end %>
+<% end %>
