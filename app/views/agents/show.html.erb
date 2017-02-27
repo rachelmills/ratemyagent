@@ -43,13 +43,13 @@
           <%= link_to "Review agent", new_agent_rating_path(@agent), class: "btn btn-primary" %>
       <% else %>
           <h4>
-            <div class="star-rating" data-score="<%= average_rating(@agent) %>" style="color: #6730EC; padding-left: 10px">
+            <div class="star-rating" data-score="<%= @agent.average_rating %>" style="color: #6730EC; padding-left: 10px">
               <%= pluralize(number_of_ratings(@agent), "review") %>
             </div>
           </h4>
           <% @ratings.each do |rating| %>
               <div class="rating-list">
-                <div class="star-rating" data-score="<%= average_rating(@agent) %>"></div>
+                <div class="star-rating" data-score="<%= rating.star_rating %>"></div>
                 <div><%= rating.rating_text %></div>
               </div>
           <% end %>

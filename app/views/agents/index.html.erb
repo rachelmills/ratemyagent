@@ -36,7 +36,7 @@
             <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
               <label class="table-header"><%= link_to "Suburb", :sort => "suburb" %></label></div>
             <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
-              <label class="table-header"><%= link_to "Reviews"%></label></div>
+              <label class="table-header"><%= link_to "Reviews", :sort => "average_rating" %></label></div>
             <%= render 'agent', obj: @agents %>
           </div>
         </div>

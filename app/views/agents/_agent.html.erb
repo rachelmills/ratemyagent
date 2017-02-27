@@ -9,7 +9,7 @@
             <%= agent.suburb %>, <%= agent.state %>
           </div>
           <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
-            <div class="star-rating" data-score="<%= average_rating(agent) %>" style="color: #6BBAA7;">
+            <div class="star-rating" data-score="<%= agent.average_rating %>" style="color: #6BBAA7;">
               <%= pluralize(number_of_ratings(agent), "review") %>
             </div>
           </div>

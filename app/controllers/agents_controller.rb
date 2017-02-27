@@ -9,7 +9,7 @@ class AgentsController < ApplicationController
       @params = true
       @agents = Agent.search(params[:by_name], params[:by_suburb], params[:by_state], params[:page])
     else
-      @agents = Agent.paginate(page: params[:page], per_page: 12)
+      @agents = Agent.order(params[:sort]).paginate(page: params[:page], per_page: 10)
     end
   end
 

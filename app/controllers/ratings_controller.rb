@@ -24,6 +24,7 @@ class RatingsController < ApplicationController
     else
       @rating = Rating.new(rating_params)
       @rating.user = current_user
+      @agent.average_rating = Rating.get_average_rating_for_agent(@agent, @rating)
       @rating.agent = @agent
     end
     if @rating.save
