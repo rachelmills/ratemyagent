@@ -1,6 +1,7 @@
 class Agent < ActiveRecord::Base
   has_many :ratings
   belongs_to :user
+  before_save { self.name = name.titleize }
 
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }, :uniqueness => { case_sensitive: false, :scope => :suburb }
   validates :suburb, presence: true, length: { minimum: 4 }

@@ -32,11 +32,11 @@
         <div align="center">
           <div class="row" id="agent">
             <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
-              <label class="table-header"><%= link_to "Agent Name", :sort => "name" %></label></div>
+              <label class="table-header"><%= sortable 'name' %></label></div>
             <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
-              <label class="table-header"><%= link_to "Suburb", :sort => "suburb" %></label></div>
+              <label class="table-header"><%= sortable 'suburb' %></label></div>
             <div class="<%= logged_in? ? "col-sm-3" : "col-sm-4" %>">
-              <label class="table-header"><%= link_to "Reviews", :sort => "average_rating" %></label></div>
+              <label class="table-header"><%= sortable 'average_rating','Average Rating'  %></label></div>
             <%= render 'agent', obj: @agents %>
           </div>
         </div>

@@ -3,13 +3,16 @@ class AgentsController < ApplicationController
   before_action :require_user, except: [:index, :show, :find]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
+  helper_method :sort_column, :sort_direction
+
   def index
     @params = false
     if params[:by_name] || params[:by_suburb] || params[:by_state]
       @params = true
       @agents = Agent.search(params[:by_name], params[:by_suburb], params[:by_state], params[:page])
     else
-      @agents = Agent.order(params[:sort]).paginate(page: params[:page], per_page: 10)
+      column = sort_column
+      @agents = Agent.order(column + " " + sort_direction(column)).paginate(page: params[:page], per_page: 10)
     end
   end
 
@@ -67,6 +70,18 @@ class AgentsController < ApplicationController
     if current_user != @agent.user && !current_user.admin?
       flash[:danger] = 'You can only edit or delete an agent you created'
       redirect_to root_path
+    end
+  end
+
+  def sort_column
+    Agent.column_names.include?(params[:sort]) ? params[:sort] : 'name'
+  end
+
+  def sort_direction(column=nil)
+    if column == 'average_rating'
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
+    else
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
     end
   end
 end
