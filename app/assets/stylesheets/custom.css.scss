@@ -17,7 +17,7 @@ html, body {
   height: 75%;
   width: 100%;
   margin-top: -140px;
-  padding: 5px 0 0 0;
+  padding: 0 0 0 0;
   box-sizing: border-box;
   background-color: inherit;
 }
@@ -360,11 +360,11 @@ a.dropdown-toggle {
   padding-left: 40px;
   padding-right: 40px;
   margin-bottom: 10px;
-  padding-top: 8px;
+  padding-top: 0px;
   padding-bottom: 4px;
   color: white;
   font-weight: 200;
-  max-width: 65%;
+  max-width: 75%;
 
 }
 
@@ -515,7 +515,7 @@ div.star_rating {
 
 .pagination > .disabled > span, .pagination > .disabled > span:hover {
   background-color: inherit;
-  color: #6BBAA7;
+  color: #6C6488;
   font-weight: bold;
   border: none;
 }
@@ -524,7 +524,7 @@ div.star_rating {
   background-color: inherit;
   border: none;
   font-weight: bold;
-  color: #6BBAA7;
+  color: #6C6488;
 }
 
 .pagination > li > a:hover {
@@ -544,13 +544,17 @@ div.star_rating {
 }
 
 .pagination {
-  margin-top: 10px;
+  padding-top: 0;
+  margin-top: 0px;
   margin-bottom: 10px;
 }
 
 label.table-header, label.table-header a {
-  color: #6C6488;
+  color: #6BBAA7;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
+
 //Colour palette
 //#http://www.colorhunt.co/hot
 //#D2F6FC
