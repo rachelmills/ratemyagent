@@ -555,6 +555,19 @@ label.table-header, label.table-header a {
   margin-bottom: 20px;
 }
 
+.current {
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-right: 25px;
+}
+.current.asc {
+  background-image: url("up_arrow.png");
+}
+
+.current.desc {
+  background-image: url("down_arrow.png");
+}
+
 //Colour palette
 //#http://www.colorhunt.co/hot
 //#D2F6FC
