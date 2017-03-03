@@ -561,11 +561,11 @@ label.table-header, label.table-header a {
   padding-right: 25px;
 }
 .current.asc {
-  background-image: url("up_arrow.png");
+  background-image: asset-url("up_arrow.png");
 }
 
 .current.desc {
-  background-image: url("down_arrow.png");
+  background-image: asset-url("down_arrow.png");
 }
 
 //Colour palette
